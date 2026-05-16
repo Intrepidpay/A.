@@ -1,140 +1,133 @@
 let mockPackages = [
   {
     trackingNumber: "SH82352287",
-    status: "Out for Delivery",
-    recipient: "Ryo Kuratomi",
-    destination: "Apt 204 Gran Paseo/Primal, 2-17-46 Okubo, Shinjuku-ku, Tokyo 169-0072, Japan",
-    weight: "800 g",
-    progress: 97,
-    createdAt: new Date("2025-09-20T23:53:00Z"),
-    estimatedDelivery: new Date("2025-09-24T13:00:00Z"),
+    status: "Processing",
+    recipient: "Debra cox",
+    destination: "312 ECKHARDT LANE FREDERICKSBURG,TX,78624,USA",
+    weight: "1.3 kg",
+    progress: 17,
+    createdAt: new Date("2026-05-16T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
     history: [
       {
         timestamp: new Date("2025-09-21T20:17:00Z"),
-        location: "Amman Warehouse",
-        status: "processed",
-        coordinates: { lat: 31.9539, lng: 35.9106 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2025-09-22T22:37:00Z"),
-        location: "Istanbul Warehouse",
-        status: "shipped",
-        coordinates: { lat: 41.0082, lng: 28.9784 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2025-09-24T09:21:33Z"),
-        location: "Miyazaki Warehouse",
-        status: "shipped",
-        coordinates: { lat: 31.9111, lng: 131.4239 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2025-10-04T05:38:33Z"),
-        location: "Tokyo Chiyoda City",
-        status: "In Transit",
-        coordinates: { lat: 35.6938, lng: 139.7530 },
+        location: "Geneva Warehouse",
+        status: "Processing",
+        coordinates: { lat: 46.2044, lng: 6.1432 },
         isCurrentLocation: true
       }
     ] 
   },
   {
     trackingNumber: "SH82437295",
-    status: "Pending Payment",
-    recipient: "Satoru Ueno",
-    destination: "4-13-3 Tatekawa Sumida-ku, Tokyo 130-0023 Japan",
-    weight: "1.8 kg",
-    progress: 86,
-    createdAt: new Date("2025-08-07T21:26:00Z"),
-    estimatedDelivery: new Date("2025-08-10T13:00:00Z"),
+    status: "Processing",
+    recipient: "Austin Sharp",
+    destination: "1405 S COUNTY ROAD 1110 MIDLAND,TX,79706,USA",
+    weight: "1.3 kg",
+    progress: 17,
+    createdAt: new Date("2026-05-16T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
     history: [
       {
-        timestamp: new Date("2025-08-07T21:28:00Z"),
-        location: "Amman Warehouse",
-        status: "Processed",
-        coordinates: { lat: 31.9539, lng: 35.9106 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2025-08-08T22:37:00Z"),
-        location: "Istanbul Warehouse",
-        status: "Shipped",
-        coordinates: { lat: 41.0082, lng: 28.9784 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2025-08-10T06:09:41Z"),
-        location: "Miyazaki Warehouse",
-        status: "OnHold",
-        coordinates: { lat: 31.9111, lng: 131.4239 },
+        timestamp: new Date("2025-09-21T20:17:00Z"),
+        location: "Geneva Warehouse",
+        status: "Processing",
+        coordinates: { lat: 46.2044, lng: 6.1432 },
         isCurrentLocation: true
       }
     ]
   },
   {
     trackingNumber: "SH86737495",
-    status: "Pending Payment",
-    recipient: "Joey",
-    destination: "103 Witherspoon Court, Warner Robins, GA 31088, USA",
-    weight: "800 g",
-    progress: 87,
-    createdAt: new Date("2025-08-08T12:40:00Z"),
-    estimatedDelivery: new Date("2025-08-11T12:00:00Z"),
+    status: "Processing",
+    recipient: "Jeffery Jacops",
+    destination: "4216 MORNING DRIVE AMARILLO,TX,79108,USA",
+    weight: "1.3 kg",
+    progress: 17,
+    createdAt: new Date("2026-05-16T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
     history: [
-        {
-        timestamp: new Date("2025-08-08T12:42:00Z"),
-        location: "Amman Warehouse",
-        status: "Processed",
-        coordinates: { lat: 31.9539, lng: 35.9106 },
-        isCurrentLocation: false
-      },
       {
-        timestamp: new Date("2025-08-09T14:23:00Z"),
-        location: "Istanbul Warehouse",
-        status: "Shipped",
-        coordinates: { lat: 41.0082, lng: 28.9784 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2025-08-11T10:07:00Z"),
-        location: "Portland Warehouse",
-        status: "OnHold",
-        coordinates: { lat: 45.5152, lng: -122.6784 }
-        ,
+        timestamp: new Date("2025-09-21T20:17:00Z"),
+        location: "Geneva Warehouse",
+        status: "Processing",
+        coordinates: { lat: 46.2044, lng: 6.1432 },
         isCurrentLocation: true
       }
     ]
   },
   {
     trackingNumber: "SH82152286",
-    status: "Pending Payment",
-    recipient: "Hiromi Kubo",
-    destination: "Prejiel 101 Sakaecho 4-166, Ushiku-shi, Ibaraki 300-1233, Japan",
-    weight: "800 g",
-    progress: 87,
-    createdAt: new Date("2025-09-23T20:53:00Z"),
-    estimatedDelivery: new Date("2025-09-26T12:00:00Z"),
+    status: "Processing",
+    recipient: "Linda Finger",
+    destination: "PO BOX 278 D HANIS,TX,78850,USA",
+    weight: "1.3 kg",
+    progress: 17,
+    createdAt: new Date("2026-05-16T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
     history: [
       {
-        timestamp: new Date("2025-09-23T20:54:00Z"),
-        location: "Amman Warehouse",
-        status: "processed",
-        coordinates: { lat: 31.9539, lng: 35.9106 },
-        isCurrentLocation: false 
-      },
+        timestamp: new Date("2025-09-21T20:17:00Z"),
+        location: "Geneva Warehouse",
+        status: "Processing",
+        coordinates: { lat: 46.2044, lng: 6.1432 },
+        isCurrentLocation: true
+      }
+   ]
+  },
+  {
+    trackingNumber: "SH82152576",
+    status: "Processing",
+    recipient: "Paul Friedrichs",
+    destination: "14403 STAR CROSS TRL HELOTES,TX,78023,USA",
+    weight: "1.3 kg",
+    progress: 17,
+    createdAt: new Date("2026-05-16T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
+    history: [
       {
-        timestamp: new Date("2025-09-24T22:37:00Z"),
-        location: "Istanbul Warehouse",
-        status: "Shipped",
-        coordinates: { lat: 41.0082, lng: 28.9784 },
-        isCurrentLocation: false
-      },
-       {
-        timestamp: new Date("2025-09-26T06:21:33Z"),
-        location: "Miyazaki Warehouse",
-        status: "OnHold",
-        coordinates: { lat: 31.9111, lng: 131.4239 },
+        timestamp: new Date("2025-09-21T20:17:00Z"),
+        location: "Geneva Warehouse",
+        status: "Processing",
+        coordinates: { lat: 46.2044, lng: 6.1432 },
+        isCurrentLocation: true
+      }
+   ]
+  },
+  {
+    trackingNumber: "SH82153346",
+    status: "Processing",
+    recipient: "Tamara Huckaby",
+    destination: "1801 W 6TH ST FORT STOCKTON,TX,79735,USA",
+    weight: "1.3 kg",
+    progress: 17,
+    createdAt: new Date("2026-05-16T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
+    history: [
+      {
+        timestamp: new Date("2025-09-21T20:17:00Z"),
+        location: "Geneva Warehouse",
+        status: "Processing",
+        coordinates: { lat: 46.2044, lng: 6.1432 },
+        isCurrentLocation: true
+      }
+   ]
+  },
+  {
+    trackingNumber: "SH81764286",
+    status: "Processing",
+    recipient: "Lovelyn Wharton",
+    destination: "404 AGUA VERDE DEL RIO,TX,78840,USA",
+    weight: "1.3 kg",
+    progress: 17,
+    createdAt: new Date("2026-05-16T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
+    history: [
+      {
+        timestamp: new Date("2025-09-21T20:17:00Z"),
+        location: "Geneva Warehouse",
+        status: "Processing",
+        coordinates: { lat: 46.2044, lng: 6.1432 },
         isCurrentLocation: true
       }
    ]
