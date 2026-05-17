@@ -1,18 +1,18 @@
 let mockPackages = [
   {
     trackingNumber: "SH82352287",
-    status: "Processing",
+    status: "In Transit",
     recipient: "Debra cox",
     destination: "312 ECKHARDT LANE FREDERICKSBURG,TX,78624,USA",
     weight: "1.3 kg",
     progress: 17,
-    createdAt: new Date("2026-05-16T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
+    createdAt: new Date("2026-05-17T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
       {
-        timestamp: new Date("2025-09-21T20:17:00Z"),
+        timestamp: new Date("2026-05-17T07:17:00Z"),
         location: "Geneva Warehouse",
-        status: "Processing",
+        status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
         isCurrentLocation: true
       }
@@ -20,18 +20,18 @@ let mockPackages = [
   },
   {
     trackingNumber: "SH82437295",
-    status: "Processing",
+    status: "In Transit",
     recipient: "Austin Sharp",
     destination: "1405 S COUNTY ROAD 1110 MIDLAND,TX,79706,USA",
     weight: "1.3 kg",
     progress: 17,
-    createdAt: new Date("2026-05-16T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
+    createdAt: new Date("2026-05-17T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
       {
-        timestamp: new Date("2025-09-21T20:17:00Z"),
+        timestamp: new Date("2026-05-17T07:17:00Z"),
         location: "Geneva Warehouse",
-        status: "Processing",
+        status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
         isCurrentLocation: true
       }
@@ -39,18 +39,18 @@ let mockPackages = [
   },
   {
     trackingNumber: "SH86737495",
-    status: "Processing",
+    status: "In Transit",
     recipient: "Jeffery Jacops",
     destination: "4216 MORNING DRIVE AMARILLO,TX,79108,USA",
     weight: "1.3 kg",
     progress: 17,
-    createdAt: new Date("2026-05-16T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
+    createdAt: new Date("2026-05-17T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
       {
-        timestamp: new Date("2025-09-21T20:17:00Z"),
+        timestamp: new Date("2026-05-17T07:17:00Z"),
         location: "Geneva Warehouse",
-        status: "Processing",
+        status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
         isCurrentLocation: true
       }
@@ -58,18 +58,18 @@ let mockPackages = [
   },
   {
     trackingNumber: "SH82152286",
-    status: "Processing",
+    status: "In Transit",
     recipient: "Linda Finger",
     destination: "PO BOX 278 D HANIS,TX,78850,USA",
     weight: "1.3 kg",
     progress: 17,
-    createdAt: new Date("2026-05-16T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
+    createdAt: new Date("2026-05-17T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
       {
-        timestamp: new Date("2025-09-21T20:17:00Z"),
+        timestamp: new Date("2026-05-17T07:17:00Z"),
         location: "Geneva Warehouse",
-        status: "Processing",
+        status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
         isCurrentLocation: true
       }
@@ -77,18 +77,18 @@ let mockPackages = [
   },
   {
     trackingNumber: "SH82152576",
-    status: "Processing",
+    status: "In Transit",
     recipient: "Paul Friedrichs",
     destination: "14403 STAR CROSS TRL HELOTES,TX,78023,USA",
     weight: "1.3 kg",
     progress: 17,
-    createdAt: new Date("2026-05-16T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
+    createdAt: new Date("2026-05-17T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
       {
-        timestamp: new Date("2025-09-21T20:17:00Z"),
+        timestamp: new Date("2026-05-17T07:17:00Z"),
         location: "Geneva Warehouse",
-        status: "Processing",
+        status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
         isCurrentLocation: true
       }
@@ -96,18 +96,18 @@ let mockPackages = [
   },
   {
     trackingNumber: "SH82153346",
-    status: "Processing",
+    status: "In Transit",
     recipient: "Tamara Huckaby",
     destination: "1801 W 6TH ST FORT STOCKTON,TX,79735,USA",
     weight: "1.3 kg",
     progress: 17,
-    createdAt: new Date("2026-05-16T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
+    createdAt: new Date("2026-05-17T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
       {
-        timestamp: new Date("2025-09-21T20:17:00Z"),
+        timestamp: new Date("2026-05-17T07:17:00Z"),
         location: "Geneva Warehouse",
-        status: "Processing",
+        status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
         isCurrentLocation: true
       }
@@ -115,18 +115,18 @@ let mockPackages = [
   },
   {
     trackingNumber: "SH81764286",
-    status: "Processing",
+    status: "In Transit",
     recipient: "Lovelyn Wharton",
     destination: "404 AGUA VERDE DEL RIO,TX,78840,USA",
     weight: "1.3 kg",
     progress: 17,
-    createdAt: new Date("2026-05-16T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-19T13:00:00Z"),
+    createdAt: new Date("2026-05-17T06:53:00Z"),
+    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
       {
-        timestamp: new Date("2025-09-21T20:17:00Z"),
+        timestamp: new Date("2026-05-17T07:17:00Z"),
         location: "Geneva Warehouse",
-        status: "Processing",
+        status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
         isCurrentLocation: true
       }
