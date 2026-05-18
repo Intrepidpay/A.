@@ -5,7 +5,7 @@ let mockPackages = [
     recipient: "Debra cox",
     destination: "312 ECKHARDT LANE FREDERICKSBURG,TX,78624,USA",
     weight: "1.3 kg",
-    progress: 17,
+    progress: 28,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -14,6 +14,13 @@ let mockPackages = [
         location: "Geneva Warehouse",
         status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-18T03:11:00Z"),
+        location: "Dingle Warehouse",
+        status: "In Transit",
+        coordinates: { lat: 52.1409, lng: -10.2640 },
         isCurrentLocation: true
       }
     ] 
@@ -24,7 +31,7 @@ let mockPackages = [
     recipient: "Austin Sharp",
     destination: "1405 S COUNTY ROAD 1110 MIDLAND,TX,79706,USA",
     weight: "1.3 kg",
-    progress: 17,
+    progress: 28,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -33,6 +40,13 @@ let mockPackages = [
         location: "Geneva Warehouse",
         status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-18T03:11:00Z"),
+        location: "Dingle Warehouse",
+        status: "In Transit",
+        coordinates: { lat: 52.1409, lng: -10.2640 },
         isCurrentLocation: true
       }
     ]
@@ -43,7 +57,7 @@ let mockPackages = [
     recipient: "Jeffery Jacops",
     destination: "4216 MORNING DRIVE AMARILLO,TX,79108,USA",
     weight: "1.3 kg",
-    progress: 17,
+    progress: 28,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -52,6 +66,13 @@ let mockPackages = [
         location: "Geneva Warehouse",
         status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-18T03:11:00Z"),
+        location: "Dingle Warehouse",
+        status: "In Transit",
+        coordinates: { lat: 52.1409, lng: -10.2640 },
         isCurrentLocation: true
       }
     ]
@@ -62,7 +83,7 @@ let mockPackages = [
     recipient: "Linda Finger",
     destination: "PO BOX 278 D HANIS,TX,78850,USA",
     weight: "1.3 kg",
-    progress: 17,
+    progress: 28,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -71,6 +92,13 @@ let mockPackages = [
         location: "Geneva Warehouse",
         status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-18T03:11:00Z"),
+        location: "Dingle Warehouse",
+        status: "In Transit",
+        coordinates: { lat: 52.1409, lng: -10.2640 },
         isCurrentLocation: true
       }
    ]
@@ -81,7 +109,7 @@ let mockPackages = [
     recipient: "Paul Friedrichs",
     destination: "14403 STAR CROSS TRL HELOTES,TX,78023,USA",
     weight: "1.3 kg",
-    progress: 17,
+    progress: 28,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -90,6 +118,13 @@ let mockPackages = [
         location: "Geneva Warehouse",
         status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-18T03:11:00Z"),
+        location: "Dingle Warehouse",
+        status: "In Transit",
+        coordinates: { lat: 52.1409, lng: -10.2640 },
         isCurrentLocation: true
       }
    ]
@@ -100,7 +135,7 @@ let mockPackages = [
     recipient: "Tamara Huckaby",
     destination: "1801 W 6TH ST FORT STOCKTON,TX,79735,USA",
     weight: "1.3 kg",
-    progress: 17,
+    progress: 28,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -109,6 +144,13 @@ let mockPackages = [
         location: "Geneva Warehouse",
         status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-18T03:11:00Z"),
+        location: "Dingle Warehouse",
+        status: "In Transit",
+        coordinates: { lat: 52.1409, lng: -10.2640 },
         isCurrentLocation: true
       }
    ]
@@ -119,7 +161,7 @@ let mockPackages = [
     recipient: "Lovelyn Wharton",
     destination: "404 AGUA VERDE DEL RIO,TX,78840,USA",
     weight: "1.3 kg",
-    progress: 17,
+    progress: 28,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -128,6 +170,13 @@ let mockPackages = [
         location: "Geneva Warehouse",
         status: "Processed",
         coordinates: { lat: 46.2044, lng: 6.1432 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-18T03:11:00Z"),
+        location: "Dingle Warehouse",
+        status: "In Transit",
+        coordinates: { lat: 52.1409, lng: -10.2640 },
         isCurrentLocation: true
       }
    ]
