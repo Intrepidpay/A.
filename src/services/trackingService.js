@@ -1,11 +1,11 @@
-let mockPackages = [
+thelet mockPackages = [
   {
     trackingNumber: "SH82352287",
-    status: "In Transit",
+    status: "Pending Payment",
     recipient: "Debra cox",
     destination: "312 ECKHARDT LANE FREDERICKSBURG,TX,78624,USA",
     weight: "1.3 kg",
-    progress: 28,
+    progress: 67,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -19,19 +19,26 @@ let mockPackages = [
       {
         timestamp: new Date("2026-05-18T03:11:00Z"),
         location: "Dingle Warehouse",
-        status: "In Transit",
+        status: "Shipped",
         coordinates: { lat: 52.1409, lng: -10.2640 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-20T13:28:00Z"),
+        location: "New Jersey Warehouse",
+        status: "Pending Payment",
+        coordinates: { lat: 40.0583, lng: -74.4057 },
         isCurrentLocation: true
       }
     ] 
   },
   {
     trackingNumber: "SH82437295",
-    status: "In Transit",
+    status: "Pending Payment",
     recipient: "Austin Sharp",
     destination: "1405 S COUNTY ROAD 1110 MIDLAND,TX,79706,USA",
     weight: "1.3 kg",
-    progress: 28,
+    progress: 67,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -43,21 +50,28 @@ let mockPackages = [
         isCurrentLocation: false
       },
       {
-        timestamp: new Date("2026-05-18T03:11:00Z"),
+        timestamp: new Date("2026-05-18T03:11:00Zc"),
         location: "Dingle Warehouse",
-        status: "In Transit",
+        status: "Shipped",
         coordinates: { lat: 52.1409, lng: -10.2640 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-20T13:28:00Z"),
+        location: "New Jersey Warehouse",
+        status: "Pending Payment",
+        coordinates: { lat: 40.0583, lng: -74.4057 },
         isCurrentLocation: true
       }
     ]
   },
   {
     trackingNumber: "SH86737495",
-    status: "In Transit",
+    status: "Pending Payment",
     recipient: "Jeffery Jacops",
     destination: "4216 MORNING DRIVE AMARILLO,TX,79108,USA",
     weight: "1.3 kg",
-    progress: 28,
+    progress: 67,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -71,19 +85,26 @@ let mockPackages = [
       {
         timestamp: new Date("2026-05-18T03:11:00Z"),
         location: "Dingle Warehouse",
-        status: "In Transit",
+        status: "Shipped",
         coordinates: { lat: 52.1409, lng: -10.2640 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-20T13:28:00Z"),
+        location: "New Jersey Warehouse",
+        status: "Pending Payment",
+        coordinates: { lat: 40.0583, lng: -74.4057 },
         isCurrentLocation: true
       }
     ]
   },
   {
     trackingNumber: "SH82152286",
-    status: "In Transit",
+    status: "Pending Payment",
     recipient: "Linda Finger",
-    destination: "PO BOX 278 D HANIS,TX,78850,USA",
+    destination: "",
     weight: "1.3 kg",
-    progress: 28,
+    progress: 67,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
