@@ -6,7 +6,7 @@ const fakeShippingData = {
     contact: '+1(830)992-0290',
     address: '312 ECKHARDT LANE FREDERICKSBURG,TX,78624,USA',
     method: 'Express (2-3 days)',
-    status: 'In Transit',
+    status: 'Pending Payment',
     trackingId: 'SH82352287',
     orderSummary: {
       shippingFee: { amount: 350.99, paid: true },
@@ -21,7 +21,7 @@ const fakeShippingData = {
     contact: '+1(432)853-6978',
     address: '1405 S COUNTY ROAD 1110 MIDLAND,TX,79706,USA',
     method: 'Express (2-3 days)',
-    status: 'In Transit',
+    status: 'Pending Payment',
     trackingId: 'SH82437295',
     orderSummary: {
       shippingFee: { amount: 350.99, paid: true },
@@ -36,7 +36,7 @@ const fakeShippingData = {
     contact: '+1(703)980-9043',
     address: '4216 MORNING DRIVE AMARILLO,TX,79108,USA',
     method: 'Express (2-3 days)',
-    status: 'In Transit',
+    status: 'Pending Payment',
     trackingId: 'SH86737495',
     orderSummary: {
       shippingFee: { amount: 350.99, paid: true },
@@ -51,7 +51,7 @@ const fakeShippingData = {
     contact: '+1(210)912-0940',
     address: 'PO BOX 278 D HANIS,TX,78850,USA',
     method: 'Express (2-3 days)',
-    status: 'In Transit',
+    status: 'Pending Payment',
     trackingId: 'SH82152286',
     orderSummary: {
       shippingFee: { amount: 350.99, paid: true },
@@ -66,7 +66,7 @@ const fakeShippingData = {
     contact: '+1(210)617-8061',
     address: '14403 STAR CROSS TRL HELOTES,TX,78023,USA',
     method: 'Express (2-3 days)',
-    status: 'In Transit',
+    status: 'Pending Payment',
     trackingId: 'SH82152576',
     orderSummary: {
       shippingFee: { amount: 350.99, paid: true },
@@ -81,7 +81,7 @@ const fakeShippingData = {
     contact: '+1(432)360-9217',
     address: '1801 W 6TH ST FORT STOCKTON,TX,79735,USA',
     method: 'Express (2-3 days)',
-    status: 'In Transit',
+    status: 'Pending Payment',
     trackingId: 'SH82153346',
     orderSummary: {
       shippingFee: { amount: 350.99, paid: true },
@@ -96,7 +96,7 @@ const fakeShippingData = {
     contact: '+1(830)719-0716',
     address: '404 AGUA VERDE DEL RIO,TX,78840,USA',
     method: 'Express (2-3 days)',
-    status: 'In Transit',
+    status: 'Pending Payment',
     trackingId: 'SH81764286',
     orderSummary: {
       shippingFee: { amount: 350.99, paid: true },
