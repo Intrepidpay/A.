@@ -1,4 +1,4 @@
-thelet mockPackages = [
+let mockPackages = [
   {
     trackingNumber: "SH82352287",
     status: "Pending Payment",
