@@ -102,7 +102,7 @@ thelet mockPackages = [
     trackingNumber: "SH82152286",
     status: "Pending Payment",
     recipient: "Linda Finger",
-    destination: "",
+    destination: "PO BOX 278 D HANIS,TX,78850,USA",
     weight: "1.3 kg",
     progress: 67,
     createdAt: new Date("2026-05-17T06:53:00Z"),
@@ -118,19 +118,26 @@ thelet mockPackages = [
       {
         timestamp: new Date("2026-05-18T03:11:00Z"),
         location: "Dingle Warehouse",
-        status: "In Transit",
+        status: "Shipped",
         coordinates: { lat: 52.1409, lng: -10.2640 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-20T13:28:00Z"),
+        location: "New Jersey Warehouse",
+        status: "Pending Payment",
+        coordinates: { lat: 40.0583, lng: -74.4057 },
         isCurrentLocation: true
       }
    ]
   },
   {
     trackingNumber: "SH82152576",
-    status: "In Transit",
+    status: "Pending Payment",
     recipient: "Paul Friedrichs",
     destination: "14403 STAR CROSS TRL HELOTES,TX,78023,USA",
     weight: "1.3 kg",
-    progress: 28,
+    progress: 67,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -144,19 +151,26 @@ thelet mockPackages = [
       {
         timestamp: new Date("2026-05-18T03:11:00Z"),
         location: "Dingle Warehouse",
-        status: "In Transit",
+        status: "Shipped",
         coordinates: { lat: 52.1409, lng: -10.2640 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-20T13:28:00Z"),
+        location: "New Jersey Warehouse",
+        status: "Pending Payment",
+        coordinates: { lat: 40.0583, lng: -74.4057 },
         isCurrentLocation: true
       }
    ]
   },
   {
     trackingNumber: "SH82153346",
-    status: "In Transit",
+    status: "Pending Payment",
     recipient: "Tamara Huckaby",
     destination: "1801 W 6TH ST FORT STOCKTON,TX,79735,USA",
     weight: "1.3 kg",
-    progress: 28,
+    progress: 67,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -170,19 +184,26 @@ thelet mockPackages = [
       {
         timestamp: new Date("2026-05-18T03:11:00Z"),
         location: "Dingle Warehouse",
-        status: "In Transit",
+        status: "Shipped",
         coordinates: { lat: 52.1409, lng: -10.2640 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-20T13:28:00Z"),
+        location: "New Jersey Warehouse",
+        status: "Pending Payment",
+        coordinates: { lat: 40.0583, lng: -74.4057 },
         isCurrentLocation: true
       }
    ]
   },
   {
     trackingNumber: "SH81764286",
-    status: "In Transit",
+    status: "Pending Payment",
     recipient: "Lovelyn Wharton",
     destination: "404 AGUA VERDE DEL RIO,TX,78840,USA",
     weight: "1.3 kg",
-    progress: 28,
+    progress: 67,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -196,8 +217,15 @@ thelet mockPackages = [
       {
         timestamp: new Date("2026-05-18T03:11:00Z"),
         location: "Dingle Warehouse",
-        status: "In Transit",
+        status: "Shipped",
         coordinates: { lat: 52.1409, lng: -10.2640 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-05-20T13:28:00Z"),
+        location: "New Jersey Warehouse",
+        status: "Pending Payment",
+        coordinates: { lat: 40.0583, lng: -74.4057 },
         isCurrentLocation: true
       }
    ]
