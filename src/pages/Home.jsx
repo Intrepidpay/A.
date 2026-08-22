@@ -3,20 +3,16 @@ import { Link } from 'react-router-dom';
 import TrackingForm from '../components/Tracking/TrackingForm';
 import TrackingResult from '../components/Tracking/TrackingResult';
 import './Home.css';
-
 const Home = () => {
   const [trackingInfo, setTrackingInfo] = useState(null);
   const resultRef = useRef(null);
-
   const handleTrack = (trackingResult) => {
     setTrackingInfo(trackingResult);
   };
-
   const handleCloseResults = () => {
     setTrackingInfo(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
   return (
     <div className="home-page">
       <section className="hero">
@@ -26,7 +22,6 @@ const Home = () => {
     <TrackingForm onTrack={handleTrack} />
   </div>
 </section>
-
       {trackingInfo && (
         <TrackingResult 
           trackingInfo={trackingInfo} 
@@ -34,7 +29,6 @@ const Home = () => {
           ref={resultRef}
         />
       )}
-
 <section className="services-section">
       <div className="container">
         <h2>Our Services</h2>
@@ -54,7 +48,6 @@ const Home = () => {
             <p>Guaranteed three days delivery for urgent shipments worldwide</p>
             <div className="service-cta">Learn More →</div>
           </Link>
-
           {/* Refrigerated Logistics */}
           <Link to="/services#refrigerated" className="service-card">
             <div className="service-icon">
@@ -70,7 +63,6 @@ const Home = () => {
             <p>Temperature-controlled transport for sensitive goods</p>
             <div className="service-cta">Learn More →</div>
           </Link>
-
           {/* Customs Clearance */}
           <Link to="/services#customs" className="service-card">
             <div className="service-icon">
@@ -89,8 +81,39 @@ const Home = () => {
         </div>
       </div>
     </section>
+
+    {/* Promo Banners & Squares */}
+    <section className="promo-section">
+      <div className="container">
+        <div className="promo-banner">
+          <img
+            src="/banner.png"
+            alt="Promotional banner"
+            className="promo-banner-img"
+          />
+        </div>
+        <div className="promo-squares">
+          <img
+            src="/square.png"
+            alt="Promotional square"
+            className="promo-square-img"
+          />
+          <img
+            src="/square1.png"
+            alt="Promotional square"
+            className="promo-square-img"
+          />
+        </div>
+        <div className="promo-banner">
+          <img
+            src="/banner1.png"
+            alt="Promotional banner"
+            className="promo-banner-img"
+          />
+        </div>
+      </div>
+    </section>
     </div>
   );
 };
-
 export default Home;
