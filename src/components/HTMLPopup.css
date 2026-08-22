@@ -87,12 +87,12 @@
   background: white;
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-  padding: 2.5rem 2rem 2rem;
+  padding: 1.5rem 2rem 2rem;
 }
 .stripe-popup-container .popup-close-button {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.25rem;
+  right: 1.5rem;
   margin: 0;
   color: #6B7280;
 }
@@ -101,7 +101,7 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  gap: 1rem;
+  gap: 0.6rem;
 }
 .stripe-popup-title {
   font-size: 1rem;
@@ -113,15 +113,14 @@
 .stripe-popup-subtitle {
   font-size: 1rem;
   color: #374151;
-  margin: 0 0 0.5rem 0;
+  margin: 0;
   line-height: 1.5;
 }
 .stripe-popup-image {
   width: 100%;
-  max-width: 280px;
   height: auto;
   border-radius: 8px;
-  align-self: center;
+  align-self: stretch;
 }
 .stripe-pay-button {
   display: flex;
