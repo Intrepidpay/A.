@@ -1,9 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './HTMLPopup.css';
+
+// TODO: Replace with your real Stripe Payment Link URL
+// Create one at https://dashboard.stripe.com/payment-links
+const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/REPLACE_WITH_YOUR_LINK';
 
 const HTMLPopup = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const iframeRef = useRef(null);
 
   // Handle scroll locking
   useEffect(() => {
@@ -15,42 +18,57 @@ const HTMLPopup = () => {
     }
   }, [showPopup]);
 
-  // Listen for messages from iframe
+  // Close popup on Escape key
   useEffect(() => {
-    const handleMessage = (event) => {
-      if (event.data === 'CLOSE_POPUP') {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
         setShowPopup(false);
       }
     };
-
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
+
+  const handleStripeClick = () => {
+    window.open(STRIPE_PAYMENT_LINK, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <>
-      <button 
+      <button
         className="payment-button primary"
         onClick={() => setShowPopup(true)}
       >
-      <img 
-     src={`${process.env.PUBLIC_URL}/assets/visa.jpg`} 
-      alt="Card" 
-       />
-        
+        <img
+          src={`${process.env.PUBLIC_URL}/assets/visa.jpg`}
+          alt="stripe"
+        />
       </button>
-
       {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-container">
-            <iframe
-              ref={iframeRef}
-              src={`${process.env.PUBLIC_URL}/popup.html`}
-              className="popup-iframe"
-              title="Payment Popup"
-              allow="payment"
-              allowFullScreen
-            />
+        <div className="popup-overlay" onClick={() => setShowPopup(false)}>
+          <div
+            className="popup-container stripe-popup-container"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="popup-close-button"
+              onClick={() => setShowPopup(false)}
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <div className="stripe-popup-content">
+              <h2 className="stripe-popup-title">Complete Your Payment</h2>
+              <p className="stripe-popup-subtitle">
+                You'll be redirected to Stripe's secure checkout to finish your payment.
+              </p>
+              <button
+                className="stripe-pay-button"
+                onClick={handleStripeClick}
+              >
+                Pay with Stripe
+              </button>
+            </div>
           </div>
         </div>
       )}
