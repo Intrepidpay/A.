@@ -78,7 +78,6 @@
     padding: 1.3rem;
   }
 }
-
 /* --- New: Stripe payment popup (added, does not modify rules above) --- */
 .stripe-popup-container {
   position: relative;
@@ -90,7 +89,6 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
   padding: 2.5rem 2rem 2rem;
 }
-
 .stripe-popup-container .popup-close-button {
   position: absolute;
   top: 1rem;
@@ -98,29 +96,33 @@
   margin: 0;
   color: #6B7280;
 }
-
 .stripe-popup-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   gap: 1rem;
 }
-
 .stripe-popup-title {
-  font-size: 1.35rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #111827;
   margin: 0;
+  align-self: flex-start;
 }
-
 .stripe-popup-subtitle {
-  font-size: 0.9rem;
-  color: #6B7280;
+  font-size: 1rem;
+  color: #374151;
   margin: 0 0 0.5rem 0;
   line-height: 1.5;
 }
-
+.stripe-popup-image {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 8px;
+  align-self: center;
+}
 .stripe-pay-button {
   display: flex;
   justify-content: center;
@@ -138,18 +140,15 @@
   background: #635BFF;
   color: white;
 }
-
 .stripe-pay-button:hover {
   background: #4b45db;
   transform: translateY(-1px);
 }
-
 .stripe-pay-button img {
   width: 60px;
   height: auto;
   filter: brightness(0) invert(1);
 }
-
 @media (max-width: 768px) {
   .stripe-popup-container {
     padding: 2rem 1.5rem 1.5rem;
