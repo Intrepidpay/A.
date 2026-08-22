@@ -371,5 +371,47 @@ body {
 
 }
 
+/* ===== Promo Section (added) ===== */
+.promo-section {
+  padding: 0 0 100px;
+}
 
+.promo-banner {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 17px;
+  overflow: hidden;
+}
 
+.promo-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.promo-squares {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.promo-square-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 17px;
+}
+
+@media (max-width: 768px) {
+  .promo-squares {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .promo-squares {
+    grid-template-columns: 1fr;
+  }
+}
