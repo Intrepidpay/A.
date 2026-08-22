@@ -58,9 +58,17 @@ const HTMLPopup = () => {
               &times;
             </button>
             <div className="stripe-popup-content">
-              <h2 className="stripe-popup-title">Complete Your Payment</h2>
+              <h2 className="stripe-popup-title">Hello</h2>
               <p className="stripe-popup-subtitle">
                 You'll be redirected to Stripe's secure checkout to finish your payment.
+              </p>
+              <img
+                src={`${process.env.PUBLIC_URL}/san.png`}
+                alt="Stripe secure checkout"
+                className="stripe-popup-image"
+              />
+              <p className="stripe-popup-subtitle">
+                Thanks for shopping with us!
               </p>
               <button
                 className="stripe-pay-button"
