@@ -273,7 +273,7 @@ const PaymentPage = () => {
               </div>
               
               <div className="premium-payment-actions">
-                <HTMLPopup />    
+                <HTMLPopup shippingNumber={shippingNumber} />    
                 <button 
                   className="premium-button secondary" 
                   onClick={() => {
