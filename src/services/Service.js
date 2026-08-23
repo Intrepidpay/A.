@@ -6,6 +6,7 @@ const fakeShippingData = {
     contact: '+1(830)992-0290',
     address: '312 ECKHARDT LANE FREDERICKSBURG,TX,78624,USA',
     method: 'Express (2-3 days)',
+    stripe: '',
     status: 'Pending Payment',
     trackingId: 'SH82352287',
     orderSummary: {
@@ -21,6 +22,7 @@ const fakeShippingData = {
     contact: '+1(432)853-6978',
     address: '1405 S COUNTY ROAD 1110 MIDLAND,TX,79706,USA',
     method: 'Express (2-3 days)',
+    stripe: 'https://buy.stripe.com/',
     status: 'Pending Payment',
     trackingId: 'SH82437295',
     orderSummary: {
