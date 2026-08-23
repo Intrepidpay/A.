@@ -121,6 +121,11 @@
   height: auto;
   border-radius: 8px;
   align-self: stretch;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.stripe-popup-image.is-loaded {
+  opacity: 1;
 }
 .stripe-pay-button {
   display: flex;
@@ -136,11 +141,11 @@
   transition: all 0.2s ease;
   border: 1px solid #E5E7EB;
   outline: none;
-  background: #635BFF;
+  background: #73a9fb;
   color: white;
 }
 .stripe-pay-button:hover {
-  background: #4b45db;
+  background: #5a94f2;
   transform: translateY(-1px);
 }
 .stripe-pay-button img {
