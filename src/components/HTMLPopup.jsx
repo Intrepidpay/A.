@@ -31,11 +31,11 @@ const HTMLPopup = ({ shippingNumber }) => {
   const [stripeLink, setStripeLink] = useState('');
   const hasStartedPreload = useRef(false);
 
-  // Pull the Stripe link out of the shipping record's `method` field.
+  // Pull the Stripe link out of the shipping record's `stripe` field.
   useEffect(() => {
     if (!shippingNumber) return;
     getShippingDetails(shippingNumber)
-      .then((details) => setStripeLink(details.method))
+      .then((details) => setStripeLink(details.stripe))
       .catch(() => {
         // Leave stripeLink empty; the pay button click will no-op below.
       });
