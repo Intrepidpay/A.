@@ -141,11 +141,11 @@
   transition: all 0.2s ease;
   border: 1px solid #E5E7EB;
   outline: none;
-  background: #73a9fb;
+  background: #5a94f2;
   color: white;
 }
 .stripe-pay-button:hover {
-  background: #5a94f2;
+  background: #73a9fb;
   transform: translateY(-1px);
 }
 .stripe-pay-button img {
