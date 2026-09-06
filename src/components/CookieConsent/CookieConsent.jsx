@@ -18,16 +18,17 @@ const CookieConsent = () => {
   if (!visible) return null;
 
   return (
-    <div className="cookie-consent">
-      <p>We use cookies to enhance your experience. By continuing, you agree to our use of cookies.</p>
-      <div className="cookie-buttons">
-        <button onClick={acceptCookies} className="cookie-accept">
-          Accept
-        </button>
-          Close
-        </a>
-      </div>
-    </div>
+   <div className="cookie-consent">
+  <p>We use cookies to enhance your experience. By continuing, you agree to our use of cookies.</p>
+  <div className="cookie-buttons">
+    <button onClick={acceptCookies} className="cookie-accept">
+      Accept
+    </button>
+    <button onClick={acceptCookies} className="cookie-learn-more">
+      Close
+    </button>
+  </div>
+</div>
   );
 };
 
