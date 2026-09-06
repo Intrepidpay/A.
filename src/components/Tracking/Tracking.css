@@ -57,7 +57,7 @@
   min-width: 100px;
   flex-shrink: 0;
   padding: 18px 10px;
-  background: linear-gradient(135deg, var(--primary), var(--primary)) !important;
+  background: var(--primary) !important;
   color: black;
   border: none;
   font-size: 1rem;
@@ -71,7 +71,7 @@
 }
 
 .premium-track-button:hover {
-  background: linear-gradient(135deg, var(--primary), #afb3bad2) !important;
+  background: #5691ea !important;
 }
 
 
