@@ -153,13 +153,13 @@
 }
 
 .premium-button.primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary)) !important;
+  background: #5a98f5 !important;
   color: white;
   box-shadow: 0 4px 6px rgba(79, 70, 229, 0.1);
 }
 
 .premium-button.primary:hover {
-  background: linear-gradient(135deg, var(--primary), #afb3bad2) !important;
+  background: #6da4f7 !important;
   transform: translateY(-1px);
   box-shadow: 0 6px 12px rgba(79, 70, 229, 0.15);
 }
