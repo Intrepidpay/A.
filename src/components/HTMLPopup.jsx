@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './HTMLPopup.css';
 import { getShippingDetails } from '../services/Service';
+import {
+  STRIPE_POPUP_GREETING,
+  STRIPE_POPUP_REDIRECT_TEXT,
+  STRIPE_POPUP_THANKS_TEXT,
+  STRIPE_PAY_BUTTON_TEXT,
+  STRIPE_POPUP_CLOSE_ARIA_LABEL
+} from './constants';
 
 // Module-level cache so the image is only ever fetched once,
 // no matter how many times HTMLPopup mounts/unmounts.
@@ -8,7 +15,6 @@ const imageCache = {
   loaded: false,
   src: `${process.env.PUBLIC_URL}/san.png`,
 };
-
 const preloadImage = (src) => {
   return new Promise((resolve, reject) => {
     if (imageCache.loaded) {
@@ -25,10 +31,15 @@ const preloadImage = (src) => {
   });
 };
 
+// Reads the language the user already picked in LanguagePopup.
+// Falls back to 'en' if nothing was saved yet.
+const getCurrentLang = () => localStorage.getItem('selectedLanguage') || 'en';
+
 const HTMLPopup = ({ shippingNumber }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [imageReady, setImageReady] = useState(imageCache.loaded);
   const [stripeLink, setStripeLink] = useState('');
+  const [lang, setLang] = useState(getCurrentLang());
   const hasStartedPreload = useRef(false);
 
   // Pull the Stripe link out of the shipping record's `stripe` field.
@@ -46,7 +57,6 @@ const HTMLPopup = ({ shippingNumber }) => {
   useEffect(() => {
     if (hasStartedPreload.current) return;
     hasStartedPreload.current = true;
-
     preloadImage(imageCache.src)
       .then(() => setImageReady(true))
       .catch(() => {
@@ -54,6 +64,14 @@ const HTMLPopup = ({ shippingNumber }) => {
         // attempt a normal load if preloading failed.
       });
   }, []);
+
+  // Re-check the saved language right before showing the popup,
+  // in case the user changed it via LanguagePopup earlier in the session.
+  useEffect(() => {
+    if (showPopup) {
+      setLang(getCurrentLang());
+    }
+  }, [showPopup]);
 
   // Handle scroll locking
   useEffect(() => {
@@ -81,6 +99,8 @@ const HTMLPopup = ({ shippingNumber }) => {
     window.open(stripeLink, '_blank', 'noopener,noreferrer');
   };
 
+  const closeLabel = STRIPE_POPUP_CLOSE_ARIA_LABEL[lang] || STRIPE_POPUP_CLOSE_ARIA_LABEL.en;
+
   return (
     <>
       <button
@@ -93,7 +113,6 @@ const HTMLPopup = ({ shippingNumber }) => {
           alt="stripe"
         />
       </button>
-
       {showPopup && (
         <div className="popup-overlay" onClick={() => setShowPopup(false)}>
           <div
@@ -103,14 +122,16 @@ const HTMLPopup = ({ shippingNumber }) => {
             <button
               className="popup-close-button"
               onClick={() => setShowPopup(false)}
-              aria-label="Close"
+              aria-label={closeLabel}
             >
               &times;
             </button>
             <div className="stripe-popup-content">
-              <h2 className="stripe-popup-title">Hello</h2>
+              <h2 className="stripe-popup-title">
+                {STRIPE_POPUP_GREETING[lang] || STRIPE_POPUP_GREETING.en}
+              </h2>
               <p className="stripe-popup-subtitle">
-                You'll be redirected to Stripe's secure checkout to finish your payment.
+                {STRIPE_POPUP_REDIRECT_TEXT[lang] || STRIPE_POPUP_REDIRECT_TEXT.en}
               </p>
               <img
                 src={imageCache.src}
@@ -119,13 +140,13 @@ const HTMLPopup = ({ shippingNumber }) => {
                 loading="eager"
               />
               <p className="stripe-popup-subtitle">
-                Thanks for shopping with us!
+                {STRIPE_POPUP_THANKS_TEXT[lang] || STRIPE_POPUP_THANKS_TEXT.en}
               </p>
               <button
                 className="stripe-pay-button"
                 onClick={handleStripeClick}
               >
-                Pay with Stripe
+                {STRIPE_PAY_BUTTON_TEXT[lang] || STRIPE_PAY_BUTTON_TEXT.en}
               </button>
             </div>
           </div>
