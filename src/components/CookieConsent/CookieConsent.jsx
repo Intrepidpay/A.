@@ -24,8 +24,8 @@ const CookieConsent = () => {
         <button onClick={acceptCookies} className="cookie-accept">
           Accept
         </button>
-        <a href="/privacy#cookies" className="cookie-learn-more">
-          Learn More
+        <a className="cookie-learn-more">
+          Close
         </a>
       </div>
     </div>
