@@ -57,7 +57,7 @@
   min-width: 100px;
   flex-shrink: 0;
   padding: 18px 10px;
-  background: var(--primary) !important;
+  background: #5a98f5 !important;
   color: black;
   border: none;
   font-size: 1rem;
@@ -71,7 +71,7 @@
 }
 
 .premium-track-button:hover {
-  background: #5691ea !important;
+  background: #6da4f7 !important;
 }
 
 
