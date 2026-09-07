@@ -281,6 +281,11 @@
   color: #10B981;
 }
 
+.event-status.onhold {
+  background: rgba(192, 115, 33, 0.1);
+  color: #F97316;
+}
+
 .event-description {
   font-size: 0.875rem;
   color: #64748B;
