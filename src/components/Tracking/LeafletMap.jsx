@@ -67,12 +67,19 @@ const MapContent = ({ locations, progress }) => {
 };
 
 const LeafletMap = ({ locations = [], progress = 0 }) => {
+  const currentIndex = locations.findIndex(loc => loc.isCurrentLocation);
+  const resolvedIndex = currentIndex !== -1 ? currentIndex : locations.length - 1;
+  const currentLocation = locations[resolvedIndex];
+
+  const initialCenter = currentLocation?.coordinates || [51.505, -0.09];
+  const initialZoom = currentLocation?.coordinates ? 10 : 2;
+
   return (
     <div className="premium-map-container">
       <MapContainer
-        center={[51.505, -0.09]}
-        zoom={2}
-        minZoom={2}
+        center={initialCenter}
+        zoom={initialZoom}
+        minZoom={3}
         scrollWheelZoom={true}
         zoomControl={false}
         className="premium-map"
