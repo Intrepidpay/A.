@@ -14,6 +14,12 @@ const defaultIcon = new L.Icon({
   shadowSize: [41, 41]
 });
 
+// World bounds used to lock panning/zooming to a single world copy
+const WORLD_BOUNDS = L.latLngBounds(
+  L.latLng(-90, -180),
+  L.latLng(90, 180)
+);
+
 const MapContent = ({ locations, progress }) => {
   const map = useMap();
   const polylineRef = useRef();
@@ -21,9 +27,10 @@ const MapContent = ({ locations, progress }) => {
   useEffect(() => {
     if (locations.length > 0) {
       // Find the current location marked in history
-      const currentLocation = locations.find(loc => loc.isCurrentLocation) || 
-                           locations[locations.length - 1];
-      
+      const currentIndex = locations.findIndex(loc => loc.isCurrentLocation);
+      const resolvedIndex = currentIndex !== -1 ? currentIndex : locations.length - 1;
+      const currentLocation = locations[resolvedIndex];
+
       if (currentLocation?.coordinates) {
         map.flyTo(currentLocation.coordinates, 10, {
           duration: 1,
@@ -31,22 +38,25 @@ const MapContent = ({ locations, progress }) => {
         });
       }
 
-      // Update polyline
+      // Draw the polyline up through the current location (not tied to progress %)
       if (polylineRef.current) {
         const trail = locations
-          .slice(0, Math.floor((progress / 100) * locations.length))
+          .slice(0, resolvedIndex + 1)
           .map(loc => loc.coordinates);
         polylineRef.current.setLatLngs(trail);
       }
     }
   }, [map, locations, progress]);
 
+  const currentIndex = locations.findIndex(loc => loc.isCurrentLocation);
+  const resolvedIndex = currentIndex !== -1 ? currentIndex : locations.length - 1;
+
   return locations.length > 0 ? (
     <>
       <Polyline 
         ref={polylineRef}
         positions={locations
-          .slice(0, Math.floor((progress / 100) * locations.length))
+          .slice(0, resolvedIndex + 1)
           .map(loc => loc.coordinates)}
         color="#3B82F6"
         weight={4}
@@ -62,15 +72,21 @@ const LeafletMap = ({ locations = [], progress = 0 }) => {
       <MapContainer
         center={[51.505, -0.09]}
         zoom={2}
+        minZoom={2}
         scrollWheelZoom={true}
         zoomControl={false}
         className="premium-map"
         maxZoom={11}
+        maxBounds={WORLD_BOUNDS}
+        maxBoundsViscosity={1.0}
+        worldCopyJump={false}
       >
         <TileLayer
-  url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png?api_key=ec2d145d-9b60-4824-a3e6-bf5b1bf5185d"
-  attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors'
-/>
+          url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png?api_key=ec2d145d-9b60-4824-a3e6-bf5b1bf5185d"
+          attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors'
+          noWrap={true}
+          bounds={WORLD_BOUNDS}
+        />
         
         {locations.map((location, index) => (
           <Marker 
