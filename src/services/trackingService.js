@@ -235,21 +235,25 @@ let mockPackages = [
 export const trackingService = {
   validateTrackingNumber: async (trackingNumber) => {
     const cleanedNumber = trackingNumber.trim().toUpperCase();
-    
-    const foundPackage = mockPackages.find(pkg => 
-      pkg.trackingNumber.toUpperCase() === cleanedNumber
-    );
-    
-    if (!foundPackage) {
-      throw new Error("Tracking number not found in our system");
-    }
-    
-    return foundPackage;
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const foundPackage = mockPackages.find(pkg => 
+          pkg.trackingNumber.toUpperCase() === cleanedNumber
+        );
+
+        if (foundPackage) {
+          resolve(foundPackage);
+        }
+        else reject(new Error('Tracking number not found in our system'));
+      }, 600);
+    });
   },
   
   getAllPackages: async () => {
     return mockPackages;
   },
+  
   
   addNewPackage: async (newPackage) => {
     if (!newPackage.trackingNumber) {
