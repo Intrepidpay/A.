@@ -32,44 +32,16 @@ const MapContent = ({ locations, progress }) => {
       const currentLocation = locations[resolvedIndex];
 
       if (currentLocation?.coordinates) {
-        const container = map.getContainer();
-        let lastWidth = container.clientWidth;
-        let lastHeight = container.clientHeight;
-        let stableFrames = 0;
-        const maxChecks = 30; // safety cap (~0.5s at 60fps)
-        let checks = 0;
+        map.invalidateSize();
+        map.flyTo(currentLocation.coordinates, 10, {
+          duration: 1,
+          padding: [50, 50]
+        });
 
-        const waitForStableSize = () => {
-          checks++;
-          const width = container.clientWidth;
-          const height = container.clientHeight;
-
-          if (width === lastWidth && height === lastHeight) {
-            stableFrames++;
-          } else {
-            stableFrames = 0;
-            lastWidth = width;
-            lastHeight = height;
-          }
-
-          // Require 3 consecutive stable frames, or bail out after maxChecks
-          if (stableFrames >= 3 || checks >= maxChecks) {
-            map.invalidateSize();
-            map.flyTo(currentLocation.coordinates, 10, {
-              duration: 1,
-              padding: [50, 50]
-            });
-
-            // After the fly animation finishes, zoom in one more level
-            map.once('moveend', () => {
-              map.setZoom(map.getZoom() + 1);
-            });
-          } else {
-            requestAnimationFrame(waitForStableSize);
-          }
-        };
-
-        requestAnimationFrame(waitForStableSize);
+        // After the fly animation finishes, zoom in one more level
+        map.once('moveend', () => {
+          map.setZoom(map.getZoom() + 1);
+        });
       }
 
       // Update polyline up through the current location
