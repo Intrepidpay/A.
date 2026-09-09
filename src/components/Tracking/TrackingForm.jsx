@@ -25,7 +25,7 @@ const TrackingForm = ({ onTrack }) => {
     setError(null);
 
     if (!trackingNumber.trim()) {
-      setError('Please enter a tracking number');
+      setError('Enter a tracking number');
       inputRef.current.focus();
       return;
     }
