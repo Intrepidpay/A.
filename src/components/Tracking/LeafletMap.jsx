@@ -32,10 +32,25 @@ const MapContent = ({ locations, progress }) => {
       const currentLocation = locations[resolvedIndex];
 
       if (currentLocation?.coordinates) {
-        map.flyTo(currentLocation.coordinates, 10, {
-          duration: 1,
-          padding: [50, 50]
-        });
+        // Small delay ensures the map container has finished sizing
+        // before the fly animation starts, so it always plays fully
+        const timer = setTimeout(() => {
+          map.invalidateSize();
+          map.flyTo(currentLocation.coordinates, 10, {
+            duration: 1.5,
+            padding: [50, 50]
+          });
+        }, 100);
+
+        // Draw the polyline up through the current location (not tied to progress %)
+        if (polylineRef.current) {
+          const trail = locations
+            .slice(0, resolvedIndex + 1)
+            .map(loc => loc.coordinates);
+          polylineRef.current.setLatLngs(trail);
+        }
+
+        return () => clearTimeout(timer);
       }
 
       // Draw the polyline up through the current location (not tied to progress %)
@@ -67,18 +82,11 @@ const MapContent = ({ locations, progress }) => {
 };
 
 const LeafletMap = ({ locations = [], progress = 0 }) => {
-  const currentIndex = locations.findIndex(loc => loc.isCurrentLocation);
-  const resolvedIndex = currentIndex !== -1 ? currentIndex : locations.length - 1;
-  const currentLocation = locations[resolvedIndex];
-
-  const initialCenter = currentLocation?.coordinates || [51.505, -0.09];
-  const initialZoom = currentLocation?.coordinates ? 10 : 2;
-
   return (
     <div className="premium-map-container">
       <MapContainer
-        center={initialCenter}
-        zoom={initialZoom}
+        center={[51.505, -0.09]}
+        zoom={3}
         minZoom={3}
         scrollWheelZoom={true}
         zoomControl={false}
