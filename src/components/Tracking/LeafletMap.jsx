@@ -32,28 +32,14 @@ const MapContent = ({ locations, progress }) => {
       const currentLocation = locations[resolvedIndex];
 
       if (currentLocation?.coordinates) {
-        // Small delay ensures the map container has finished sizing
-        // before the fly animation starts, so it always plays fully
-        const timer = setTimeout(() => {
-          map.invalidateSize();
-          map.flyTo(currentLocation.coordinates, 10, {
-            duration: 1.5,
-            padding: [50, 50]
-          });
-        }, 100);
-
-        // Draw the polyline up through the current location (not tied to progress %)
-        if (polylineRef.current) {
-          const trail = locations
-            .slice(0, resolvedIndex + 1)
-            .map(loc => loc.coordinates);
-          polylineRef.current.setLatLngs(trail);
-        }
-
-        return () => clearTimeout(timer);
+        map.invalidateSize();
+        map.flyTo(currentLocation.coordinates, 10, {
+          duration: 1,
+          padding: [50, 50]
+        });
       }
 
-      // Draw the polyline up through the current location (not tied to progress %)
+      // Update polyline up through the current location
       if (polylineRef.current) {
         const trail = locations
           .slice(0, resolvedIndex + 1)
