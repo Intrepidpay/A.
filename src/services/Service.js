@@ -123,6 +123,6 @@ export const getShippingDetails = async (shippingNumber) => {
         resolve(formattedDetails);
       }
       else reject(new Error('Shipping number not found.'));
-    }, 500);
+    }, 600);
   });
 };
