@@ -59,6 +59,11 @@ const MapContent = ({ locations, progress }) => {
               duration: 1,
               padding: [50, 50]
             });
+
+            // After the fly animation finishes, zoom in one more level
+            map.once('moveend', () => {
+              map.setZoom(map.getZoom() + 1);
+            });
           } else {
             requestAnimationFrame(waitForStableSize);
           }
