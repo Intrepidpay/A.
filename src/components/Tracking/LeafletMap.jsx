@@ -95,22 +95,26 @@ const LeafletMap = ({ locations = [], progress = 0 }) => {
         />
         
         {locations.map((location, index) => (
-          <Marker 
-            key={index} 
-            position={location.coordinates}
-            icon={defaultIcon}
-          >
-            <Popup className="premium-popup">
-              <div className="popup-content">
-                <h4>{location.location.split(',')[0]}</h4>
-                <div className="popup-status">{location.status}</div>
-                <div className="popup-date">
-                  {new Date(location.timestamp).toLocaleString()}
-                </div>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
+  <Marker 
+    key={index} 
+    position={location.coordinates}
+    icon={defaultIcon}
+    eventHandlers={{
+      mouseover: (e) => e.target.openPopup(),
+      mouseout: (e) => e.target.closePopup(),
+    }}
+  >
+    <Popup className="premium-popup">
+      <div className="popup-content">
+        <h4>{location.location.split(',')[0]}</h4>
+        <div className="popup-status">{location.status}</div>
+        <div className="popup-date">
+          {new Date(location.timestamp).toLocaleString()}
+        </div>
+      </div>
+    </Popup>
+  </Marker>
+))}
         <MapContent locations={locations} progress={progress} />
       </MapContainer>
 
