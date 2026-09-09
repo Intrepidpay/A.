@@ -32,10 +32,12 @@ const MapContent = ({ locations, progress }) => {
       const currentLocation = locations[resolvedIndex];
 
       if (currentLocation?.coordinates) {
-        map.invalidateSize();
-        map.flyTo(currentLocation.coordinates, 10, {
-          duration: 1,
-          padding: [50, 50]
+        requestAnimationFrame(() => {
+          map.invalidateSize();
+          map.flyTo(currentLocation.coordinates, 10, {
+            duration: 1,
+            padding: [50, 50]
+          });
         });
       }
 
