@@ -63,6 +63,24 @@ let mockPackages = [
         status: "onHold",
         coordinates: { lat: 31.9111, lng: 131.4239 },
         isCurrentLocation: true
+      },
+
+      {
+    trackingNumber: "SH82497268",
+    status: "In Transit",
+    recipient: "Steve lyer",
+    destination: "Tokyo-to, Shinagawa-ku, Koyama 2-12-5 Room 101, Japan 142-0062",
+    weight: "800 g",
+    progress: 17,
+    createdAt: new Date("2026-09-11T18:33:00Z"),
+    estimatedDelivery: new Date("2026-09-13T13:00:00Z"),
+    history: [
+      {
+        timestamp: new Date("2026-09-11T20:17:00Z"),
+        location: "Amman Warehouse",
+        status: "processed",
+        coordinates: { lat: 31.9539, lng: 35.9106 },
+        isCurrentLocation: true
       }
     ]
   },
