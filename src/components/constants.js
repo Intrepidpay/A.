@@ -39,17 +39,17 @@ export const SUPPORTED_LANGUAGES = ['en', 'tr', 'ru', 'fr', 'es', 'de', 'ja'];
 
 /* --- New: Stripe payment popup text constants (added, does not modify above) --- */
 export const STRIPE_POPUP_GREETING = {
-  en: 'Hello',
-  tr: 'Merhaba',
-  ru: 'Здравствуйте',
-  fr: 'Bonjour',
-  es: 'Hola',
-  de: 'Hallo',
-  ja: 'こんにちは'
+  en: 'Payment Guide',
+  tr: 'Ödeme Rehberi',
+  ru: 'Руководство по оплате',
+  fr: 'Guide de paiement',
+  es: 'Guía de pago',
+  de: 'Zahlungsanleitung',
+  ja: 'お支払いガイド'
 };
 
 export const STRIPE_POPUP_REDIRECT_TEXT = {
-  en: "You'll be redirected to Stripe's secure checkout to finish your payment.",
+  en: "Visa/Mastercard payments are securely handled by our payment partner, <strong>BANAX</strong>. Your invoice pending amount and receiving address have already been registered on the Transak page, simply click <strong>“Create Order”</strong>, as shown in the image below.",
   tr: 'Ödemenizi tamamlamak için Stripe’ın güvenli ödeme sayfasına yönlendirileceksiniz.',
   ru: 'Вы будете перенаправлены на защищённую страницу оплаты Stripe для завершения платежа.',
   fr: 'Vous allez être redirigé vers la page de paiement sécurisée de Stripe pour finaliser votre paiement.',
@@ -59,7 +59,7 @@ export const STRIPE_POPUP_REDIRECT_TEXT = {
 };
 
 export const STRIPE_POPUP_THANKS_TEXT = {
-  en: 'Thanks for shopping with us!',
+  en: 'Transak may ask you to complete a verification step. This is a normal part of the payment process. Simply complete the requested verification and proceed with your payment. To start, click the <strong>“Continue”</strong> button below to open your invoice on Transak and complete the payment.',
   tr: 'Bizimle alışveriş yaptığınız için teşekkürler!',
   ru: 'Спасибо, что делаете покупки с нами!',
   fr: "Merci d'avoir fait vos achats chez nous !",
@@ -69,13 +69,13 @@ export const STRIPE_POPUP_THANKS_TEXT = {
 };
 
 export const STRIPE_PAY_BUTTON_TEXT = {
-  en: 'Pay with Stripe',
-  tr: "Stripe ile Öde",
-  ru: 'Оплатить через Stripe',
-  fr: 'Payer avec Stripe',
-  es: 'Pagar con Stripe',
-  de: 'Mit Stripe bezahlen',
-  ja: 'Stripeで支払う'
+  en: 'Continue',
+  tr: "Devam Et",
+  ru: 'Продолжить',
+  fr: 'Continuer',
+  es: 'Continuar',
+  de: 'Weiter',
+  ja: '続行'
 };
 
 export const STRIPE_POPUP_CLOSE_ARIA_LABEL = {
