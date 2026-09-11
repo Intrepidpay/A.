@@ -36,20 +36,33 @@ export const translatePage = async (targetLang) => {
 
 /**
  * Recursively translates visible text nodes in a given element, preserving HTML structure.
+ * Anything inside an element carrying the "no-translate" class (at any ancestor level)
+ * is skipped entirely and never sent to the API.
  */
 const translateVisibleTextNodes = async (rootElement, targetLang) => {
+  // If the root itself is inside a no-translate boundary, bail immediately.
+  if (rootElement.closest && rootElement.closest('.no-translate')) {
+    return;
+  }
+
   const walker = document.createTreeWalker(
     rootElement,
     NodeFilter.SHOW_TEXT,
     {
       acceptNode: (node) => {
         const parent = node.parentNode;
-        
-        // Skip if element has "no-translate" class
-        if (parent.classList && parent.classList.contains('no-translate')) {
+
+        if (!parent) {
           return NodeFilter.FILTER_REJECT;
         }
-        
+
+        // Skip if element or ANY ancestor has "no-translate" class.
+        // Using closest() (not classList.contains) so nested text
+        // (e.g. <div class="no-translate"><h2>text</h2></div>) is still protected.
+        if (parent.closest && parent.closest('.no-translate')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+
         // Skip script/style/noscript and empty nodes
         if (
           parent.nodeName === 'SCRIPT' ||
@@ -59,7 +72,7 @@ const translateVisibleTextNodes = async (rootElement, targetLang) => {
         ) {
           return NodeFilter.FILTER_REJECT;
         }
-        
+
         return NodeFilter.FILTER_ACCEPT;
       },
     },
@@ -78,7 +91,7 @@ const translateVisibleTextNodes = async (rootElement, targetLang) => {
     const batch = textNodes.slice(i, i + batchSize);
     const texts = batch.map(node => node.nodeValue);
     const translatedTexts = await translateTextBatch(texts, targetLang);
-    
+
     batch.forEach((node, index) => {
       // Only update if translation is different
       if (translatedTexts[index] && translatedTexts[index] !== node.nodeValue) {
@@ -146,6 +159,7 @@ const THROTTLE_DELAY = 500;
 
 /**
  * Observe dynamic DOM changes and translate new visible content automatically.
+ * Elements inside "no-translate" are filtered out before they're ever queued.
  */
 const observeDOMChanges = (targetLang) => {
   // Disconnect existing observer if any
@@ -164,23 +178,34 @@ const observeDOMChanges = (targetLang) => {
           mutation.addedNodes.forEach((node) => {
             // Handle elements directly
             if (node.nodeType === Node.ELEMENT_NODE) {
+              // Never queue anything inside a no-translate boundary.
+              if (node.closest && node.closest('.no-translate')) {
+                return;
+              }
               elementsToTranslate.add(node);
             }
           });
         }
-        
+
         // Handle visibility changes (like reveal animations)
-        if (mutation.type === 'attributes' && 
+        if (mutation.type === 'attributes' &&
             (mutation.attributeName === 'class' || mutation.attributeName === 'style')) {
-          if (isVisible(mutation.target)) {
-            elementsToTranslate.add(mutation.target);
+          const target = mutation.target;
+          if (target.closest && target.closest('.no-translate')) {
+            return;
+          }
+          if (isVisible(target)) {
+            elementsToTranslate.add(target);
           }
         }
       });
 
-      // Add tracking elements specifically
+      // Add tracking elements specifically, excluding no-translate ones
       const trackingElements = document.querySelectorAll('.premium-tracking-result, .timeline-item, .timeline-content');
-      trackingElements.forEach(el => elementsToTranslate.add(el));
+      trackingElements.forEach(el => {
+        if (el.closest && el.closest('.no-translate')) return;
+        elementsToTranslate.add(el);
+      });
 
       // Translate all collected elements
       elementsToTranslate.forEach((element) => {
@@ -205,34 +230,36 @@ const observeDOMChanges = (targetLang) => {
  */
 const isVisible = (element) => {
   if (!element || !(element instanceof Element)) return false;
-  
+
   // Check computed style
   const style = window.getComputedStyle(element);
   if (style.visibility === 'hidden' || style.display === 'none' || style.opacity === '0') {
     return false;
   }
-  
+
   // Special case for tracking elements
-  if (element.classList.contains('premium-tracking-result') || 
-      element.classList.contains('timeline-item') || 
+  if (element.classList.contains('premium-tracking-result') ||
+      element.classList.contains('timeline-item') ||
       element.classList.contains('timeline-content')) {
     return true;
   }
-  
+
   // Check bounding rectangle
   const rect = element.getBoundingClientRect();
   return rect.width > 0 && rect.height > 0;
 };
 
 /**
- * Periodically check for tracking elements that need translation
+ * Periodically check for tracking elements that need translation.
+ * Skips anything inside a no-translate boundary.
  */
 setInterval(() => {
   const lang = localStorage.getItem('selectedLanguage') || 'en';
   if (lang === 'en') return;
-  
+
   // Look for tracking elements that might have been missed
   document.querySelectorAll('.premium-tracking-result, .timeline-item, .timeline-content').forEach(async (element) => {
+    if (element.closest && element.closest('.no-translate')) return;
     if (isVisible(element)) {
       await translateVisibleTextNodes(element, lang);
     }
