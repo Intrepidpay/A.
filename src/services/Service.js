@@ -31,6 +31,21 @@ const fakeShippingData = {
     clearance: { amount: 285.00, paid: false },
     tax: { amount: 23.22, paid: false },
     total: 318.22
+    },
+    SH82497268: {
+    sender: 'Olivia Tooley',
+    recipient: 'Steve lyer',
+    contact: '---',
+    address: 'Tokyo-to, Shinagawa-ku, Koyama 2-12-5 Room 101, Japan 142-0062',
+    method: 'Express (2-3 days)',
+    stripe: '',
+    status: 'In Transit',
+    trackingId: 'SH82497268',
+    orderSummary: {
+    shippingFee: { amount: 350.99, paid: true },
+    clearance: { amount: 285.00, paid: false },
+    tax: { amount: 23.22, paid: false },
+    total: 318.22
     }
   }
 };
