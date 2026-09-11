@@ -36,7 +36,7 @@ let mockPackages = [
   {
   trackingNumber: "SH86737495",
     status: "Pending Payment",
-    recipient: "Ryo Kuratomi",
+    recipient: "Joe Happer",
     destination: "Apt 204, 2-17-46 Dallas Park, Texas 169-0072, United States",
     weight: "800 g",
     progress: 87,
