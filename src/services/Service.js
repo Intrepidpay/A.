@@ -6,7 +6,7 @@ const fakeShippingData = {
     contact: '+1(432)853-6978',
     address: '1405 S COUNTY ROAD 1110 MIDLAND,TX,79706,USA',
     method: 'Express (2-3 days)',
-    stripe: 'https://buy.stripe.com/',
+    stripe: 'https://buy.stripe.com',
     status: 'Pending Payment',
     trackingId: 'SH82437295',
     orderSummary: {
@@ -23,6 +23,7 @@ const fakeShippingData = {
     contact: '+1 (806) 3558-7843',
     address: 'Apt 204, 2-17-46 Dallas Park, Texas 169-0072, United States',
     method: 'Express (2-3 days)',
+    stripe: 'https://buy.stripe.com',
     status: 'Pending Payment',
     trackingId: 'SH86737495',
     orderSummary: {
