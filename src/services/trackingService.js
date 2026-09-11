@@ -63,7 +63,9 @@ let mockPackages = [
         status: "onHold",
         coordinates: { lat: 31.9111, lng: 131.4239 },
         isCurrentLocation: true
-      },
+        }
+      ]
+     },
 
       {
     trackingNumber: "SH82497268",
