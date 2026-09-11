@@ -75,7 +75,7 @@ const PaymentPage = () => {
           <>
             <div className="premium-input-section">
               <h1 className="premium-title">Track Your Package</h1>
-              <p className="premium-subtitle">Enter your tracking number to view details and make payment</p>
+              <p className="premium-subtitle">Enter your tracking number to view invoice and make payment</p>
               
               <div className={`premium-input-group ${error ? 'error' : ''}`}>
                 <input
@@ -178,7 +178,7 @@ const PaymentPage = () => {
             <div className="premium-payment-section">
               <div className="premium-payment-header">
                 <h1 className="premium-payment-title">Complete Your Payment</h1>
-                <p className="premium-payment-subtitle">Review your shipping details and select a payment method</p>
+                <p className="premium-payment-subtitle">Review your shipping invoice and select a payment method</p>
               </div>
               
               <div className="premium-shipping-details">
