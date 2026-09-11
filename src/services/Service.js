@@ -31,7 +31,8 @@ const fakeShippingData = {
     clearance: { amount: 285.00, paid: false },
     tax: { amount: 23.22, paid: false },
     total: 318.22
-    },
+    }
+  },
     SH82497268: {
     sender: 'Olivia Tooley',
     recipient: 'Steve lyer',
