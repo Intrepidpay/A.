@@ -120,17 +120,17 @@ const HTMLPopup = ({ shippingNumber }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="popup-close-button"
+              className="popup-close-button no-translate"
               onClick={() => setShowPopup(false)}
               aria-label={closeLabel}
             >
               &times;
             </button>
             <div className="stripe-popup-content">
-              <h2 className="stripe-popup-title">
+              <h2 className="stripe-popup-title no-translate">
                 {STRIPE_POPUP_GREETING[lang] || STRIPE_POPUP_GREETING.en}
               </h2>
-              <p className="stripe-popup-subtitle">
+              <p className="stripe-popup-subtitle no-translate">
                 {STRIPE_POPUP_REDIRECT_TEXT[lang]?.() || STRIPE_POPUP_REDIRECT_TEXT.en()}
               </p>
               <img
@@ -139,11 +139,11 @@ const HTMLPopup = ({ shippingNumber }) => {
                 className={`stripe-popup-image${imageReady ? ' is-loaded' : ''}`}
                 loading="eager"
               />
-              <p className="stripe-popup-subtitle">
+              <p className="stripe-popup-subtitle no-translate">
                 {STRIPE_POPUP_THANKS_TEXT[lang]?.() || STRIPE_POPUP_THANKS_TEXT.en()}
               </p>
               <button
-                className="stripe-pay-button"
+                className="stripe-pay-button no-translate"
                 onClick={handleStripeClick}
               >
                 {STRIPE_PAY_BUTTON_TEXT[lang] || STRIPE_PAY_BUTTON_TEXT.en}
