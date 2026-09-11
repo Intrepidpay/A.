@@ -25,8 +25,18 @@ export const translatePage = async (targetLang) => {
 
     // Translate the document title.
     const titleElement = document.querySelector('title');
-    if (titleElement && titleElement.textContent && !titleElement.closest('.no-translate')) {
-      const translatedTitle = await translateText(titleElement.textContent, targetLang);
+
+    if (
+      titleElement &&
+      titleElement.textContent &&
+      !titleElement.closest('.no-translate') &&
+      titleElement.getAttribute('translate') !== 'no'
+    ) {
+      const translatedTitle = await translateText(
+        titleElement.textContent,
+        targetLang
+      );
+
       titleElement.textContent = translatedTitle;
     }
   } catch (error) {
@@ -38,6 +48,21 @@ export const translatePage = async (targetLang) => {
  * Recursively translates visible text nodes in a given element, preserving HTML structure.
  */
 const translateVisibleTextNodes = async (rootElement, targetLang) => {
+  // Never translate anything if the root itself is protected.
+  if (
+    rootElement.classList &&
+    rootElement.classList.contains('no-translate')
+  ) {
+    return;
+  }
+
+  if (
+    rootElement.getAttribute &&
+    rootElement.getAttribute('translate') === 'no'
+  ) {
+    return;
+  }
+
   const walker = document.createTreeWalker(
     rootElement,
     NodeFilter.SHOW_TEXT,
@@ -45,8 +70,8 @@ const translateVisibleTextNodes = async (rootElement, targetLang) => {
       acceptNode: (node) => {
         const parent = node.parentNode;
 
-        // Walk up through all ancestors and skip the text node if
-        // any ancestor has "no-translate" or translate="no".
+        // Walk through ancestors and skip only if the text
+        // belongs to a protected element such as the popup.
         let currentElement = parent;
 
         while (currentElement && currentElement !== rootElement.parentNode) {
@@ -100,7 +125,10 @@ const translateVisibleTextNodes = async (rootElement, targetLang) => {
 
     batch.forEach((node, index) => {
       // Only update if translation is different
-      if (translatedTexts[index] && translatedTexts[index] !== node.nodeValue) {
+      if (
+        translatedTexts[index] &&
+        translatedTexts[index] !== node.nodeValue
+      ) {
         node.nodeValue = translatedTexts[index];
       }
     });
@@ -194,7 +222,8 @@ const observeDOMChanges = (targetLang) => {
         // Handle visibility changes (like reveal animations)
         if (
           mutation.type === 'attributes' &&
-          (mutation.attributeName === 'class' || mutation.attributeName === 'style')
+          (mutation.attributeName === 'class' ||
+            mutation.attributeName === 'style')
         ) {
           if (isVisible(mutation.target)) {
             elementsToTranslate.add(mutation.target);
@@ -234,6 +263,16 @@ const observeDOMChanges = (targetLang) => {
  */
 const isVisible = (element) => {
   if (!element || !(element instanceof Element)) return false;
+
+  // Never process protected popup elements.
+  if (
+    element.classList.contains('no-translate') ||
+    element.getAttribute('translate') === 'no' ||
+    element.closest('.no-translate') ||
+    element.closest('[translate="no"]')
+  ) {
+    return false;
+  }
 
   // Check computed style
   const style = window.getComputedStyle(element);
