@@ -1,11 +1,11 @@
 let mockPackages = [
   {
-    trackingNumber: "SH82352287",
+    trackingNumber: "SH82437295",
     status: "Pending Payment",
-    recipient: "Debra cox",
-    destination: "312 ECKHARDT LANE FREDERICKSBURG,TX,78624,USA",
+    recipient: "Austin Sharp",
+    destination: "1405 S COUNTY ROAD 1110 MIDLAND,TX,79706,USA",
     weight: "1.3 kg",
-    progress: 67,
+    progress: 78,
     createdAt: new Date("2026-05-17T06:53:00Z"),
     estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
     history: [
@@ -18,39 +18,6 @@ let mockPackages = [
       },
       {
         timestamp: new Date("2026-05-18T03:11:00Z"),
-        location: "Dingle Warehouse",
-        status: "Shipped",
-        coordinates: { lat: 52.1409, lng: -10.2640 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2026-05-20T13:28:00Z"),
-        location: "New Jersey Warehouse",
-        status: "Pending Payment",
-        coordinates: { lat: 40.0583, lng: -74.4057 },
-        isCurrentLocation: true
-      }
-    ] 
-  },
-  {
-    trackingNumber: "SH82437295",
-    status: "Pending Payment",
-    recipient: "Austin Sharp",
-    destination: "1405 S COUNTY ROAD 1110 MIDLAND,TX,79706,USA",
-    weight: "1.3 kg",
-    progress: 67,
-    createdAt: new Date("2026-05-17T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
-    history: [
-      {
-        timestamp: new Date("2026-05-17T07:17:00Z"),
-        location: "Geneva Warehouse",
-        status: "Processed",
-        coordinates: { lat: 46.2044, lng: 6.1432 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2026-05-18T03:11:00Zc"),
         location: "Dingle Warehouse",
         status: "Shipped",
         coordinates: { lat: 52.1409, lng: -10.2640 },
@@ -65,170 +32,39 @@ let mockPackages = [
       }
     ]
   },
+  
   {
-    trackingNumber: "SH86737495",
+  trackingNumber: "SH86737495",
     status: "Pending Payment",
-    recipient: "Jeffery Jacops",
-    destination: "4216 MORNING DRIVE AMARILLO,TX,79108,USA",
-    weight: "1.3 kg",
-    progress: 67,
-    createdAt: new Date("2026-05-17T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
+    recipient: "Ryo Kuratomi",
+    destination: "Apt 204, 2-17-46 Dallas Park, Texas 169-0072, United States",
+    weight: "800 g",
+    progress: 87,
+    createdAt: new Date("2025-09-20T23:53:00Z"),
+    estimatedDelivery: new Date("2025-09-24T13:00:00Z"),
     history: [
       {
-        timestamp: new Date("2026-05-17T07:17:00Z"),
-        location: "Geneva Warehouse",
-        status: "Processed",
-        coordinates: { lat: 46.2044, lng: 6.1432 },
+        timestamp: new Date("2025-09-21T20:17:00Z"),
+        location: "Amman Warehouse",
+        status: "processed",
+        coordinates: { lat: 31.9539, lng: 35.9106 },
         isCurrentLocation: false
       },
       {
-        timestamp: new Date("2026-05-18T03:11:00Z"),
-        location: "Dingle Warehouse",
-        status: "Shipped",
-        coordinates: { lat: 52.1409, lng: -10.2640 },
+        timestamp: new Date("2025-09-22T22:37:00Z"),
+        location: "Istanbul Warehouse",
+        status: "shipped",
+        coordinates: { lat: 41.0082, lng: 28.9784 },
         isCurrentLocation: false
       },
       {
-        timestamp: new Date("2026-05-20T13:28:00Z"),
-        location: "New Jersey Warehouse",
-        status: "Pending Payment",
-        coordinates: { lat: 40.0583, lng: -74.4057 },
+        timestamp: new Date("2025-09-24T09:21:33Z"),
+        location: "Miyazaki Warehouse",
+        status: "onHold",
+        coordinates: { lat: 31.9111, lng: 131.4239 },
         isCurrentLocation: true
       }
     ]
-  },
-  {
-    trackingNumber: "SH82152286",
-    status: "Pending Payment",
-    recipient: "Linda Finger",
-    destination: "PO BOX 278 D HANIS,TX,78850,USA",
-    weight: "1.3 kg",
-    progress: 67,
-    createdAt: new Date("2026-05-17T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
-    history: [
-      {
-        timestamp: new Date("2026-05-17T07:17:00Z"),
-        location: "Geneva Warehouse",
-        status: "Processed",
-        coordinates: { lat: 46.2044, lng: 6.1432 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2026-05-18T03:11:00Z"),
-        location: "Dingle Warehouse",
-        status: "Shipped",
-        coordinates: { lat: 52.1409, lng: -10.2640 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2026-05-20T13:28:00Z"),
-        location: "New Jersey Warehouse",
-        status: "Pending Payment",
-        coordinates: { lat: 40.0583, lng: -74.4057 },
-        isCurrentLocation: true
-      }
-   ]
-  },
-  {
-    trackingNumber: "SH82152576",
-    status: "Pending Payment",
-    recipient: "Paul Friedrichs",
-    destination: "14403 STAR CROSS TRL HELOTES,TX,78023,USA",
-    weight: "1.3 kg",
-    progress: 67,
-    createdAt: new Date("2026-05-17T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
-    history: [
-      {
-        timestamp: new Date("2026-05-17T07:17:00Z"),
-        location: "Geneva Warehouse",
-        status: "Processed",
-        coordinates: { lat: 46.2044, lng: 6.1432 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2026-05-18T03:11:00Z"),
-        location: "Dingle Warehouse",
-        status: "Shipped",
-        coordinates: { lat: 52.1409, lng: -10.2640 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2026-05-20T13:28:00Z"),
-        location: "New Jersey Warehouse",
-        status: "Pending Payment",
-        coordinates: { lat: 40.0583, lng: -74.4057 },
-        isCurrentLocation: true
-      }
-   ]
-  },
-  {
-    trackingNumber: "SH82153346",
-    status: "Pending Payment",
-    recipient: "Tamara Huckaby",
-    destination: "1801 W 6TH ST FORT STOCKTON,TX,79735,USA",
-    weight: "1.3 kg",
-    progress: 67,
-    createdAt: new Date("2026-05-17T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
-    history: [
-      {
-        timestamp: new Date("2026-05-17T07:17:00Z"),
-        location: "Geneva Warehouse",
-        status: "Processed",
-        coordinates: { lat: 46.2044, lng: 6.1432 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2026-05-18T03:11:00Z"),
-        location: "Dingle Warehouse",
-        status: "Shipped",
-        coordinates: { lat: 52.1409, lng: -10.2640 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2026-05-20T13:28:00Z"),
-        location: "New Jersey Warehouse",
-        status: "Pending Payment",
-        coordinates: { lat: 40.0583, lng: -74.4057 },
-        isCurrentLocation: true
-      }
-   ]
-  },
-  {
-    trackingNumber: "SH81764286",
-    status: "Pending Payment",
-    recipient: "Lovelyn Wharton",
-    destination: "404 AGUA VERDE DEL RIO,TX,78840,USA",
-    weight: "1.3 kg",
-    progress: 67,
-    createdAt: new Date("2026-05-17T06:53:00Z"),
-    estimatedDelivery: new Date("2026-05-20T13:00:00Z"),
-    history: [
-      {
-        timestamp: new Date("2026-05-17T07:17:00Z"),
-        location: "Geneva Warehouse",
-        status: "Processed",
-        coordinates: { lat: 46.2044, lng: 6.1432 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2026-05-18T03:11:00Z"),
-        location: "Dingle Warehouse",
-        status: "Shipped",
-        coordinates: { lat: 52.1409, lng: -10.2640 },
-        isCurrentLocation: false
-      },
-      {
-        timestamp: new Date("2026-05-20T13:28:00Z"),
-        location: "New Jersey Warehouse",
-        status: "Pending Payment",
-        coordinates: { lat: 40.0583, lng: -74.4057 },
-        isCurrentLocation: true
-      }
-   ]
   },
 ];
 
