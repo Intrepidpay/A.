@@ -131,7 +131,7 @@ const HTMLPopup = ({ shippingNumber }) => {
                 {STRIPE_POPUP_GREETING[lang] || STRIPE_POPUP_GREETING.en}
               </h2>
               <p className="stripe-popup-subtitle">
-                {STRIPE_POPUP_REDIRECT_TEXT[lang] || STRIPE_POPUP_REDIRECT_TEXT.en}
+                {STRIPE_POPUP_REDIRECT_TEXT[lang]?.() || STRIPE_POPUP_REDIRECT_TEXT.en()}
               </p>
               <img
                 src={imageCache.src}
@@ -140,7 +140,7 @@ const HTMLPopup = ({ shippingNumber }) => {
                 loading="eager"
               />
               <p className="stripe-popup-subtitle">
-                {STRIPE_POPUP_THANKS_TEXT[lang] || STRIPE_POPUP_THANKS_TEXT.en}
+                {STRIPE_POPUP_THANKS_TEXT[lang]?.() || STRIPE_POPUP_THANKS_TEXT.en()}
               </p>
               <button
                 className="stripe-pay-button"
