@@ -20,12 +20,15 @@ const preloadImage = (src) => {
       resolve();
       return;
     }
+
     const img = new Image();
     img.src = src;
+
     img.onload = () => {
       imageCache.loaded = true;
       resolve();
     };
+
     img.onerror = reject;
   });
 };
@@ -42,6 +45,7 @@ const HTMLPopup = ({ shippingNumber }) => {
 
   useEffect(() => {
     if (!shippingNumber) return;
+
     getShippingDetails(shippingNumber)
       .then((details) => setStripeLink(details.stripe))
       .catch(() => {});
@@ -49,7 +53,9 @@ const HTMLPopup = ({ shippingNumber }) => {
 
   useEffect(() => {
     if (hasStartedPreload.current) return;
+
     hasStartedPreload.current = true;
+
     preloadImage(imageCache.src)
       .then(() => setImageReady(true))
       .catch(() => {});
@@ -64,6 +70,7 @@ const HTMLPopup = ({ shippingNumber }) => {
   useEffect(() => {
     if (showPopup) {
       document.body.style.overflow = 'hidden';
+
       return () => {
         document.body.style.overflow = '';
       };
@@ -76,7 +83,9 @@ const HTMLPopup = ({ shippingNumber }) => {
         setShowPopup(false);
       }
     };
+
     window.addEventListener('keydown', handleKeyDown);
+
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
@@ -87,7 +96,9 @@ const HTMLPopup = ({ shippingNumber }) => {
 
     const id = requestAnimationFrame(() => {
       const el = popupContentRef.current;
+
       if (!el) return;
+
       el.querySelectorAll('[data-static-text]').forEach((node) => {
         if (node.textContent !== node.dataset.staticText) {
           node.textContent = node.dataset.staticText;
@@ -100,13 +111,19 @@ const HTMLPopup = ({ shippingNumber }) => {
 
   const handleStripeClick = () => {
     if (!stripeLink) return;
+
     window.open(stripeLink, '_blank', 'noopener,noreferrer');
   };
 
-  const greeting = STRIPE_POPUP_GREETING[lang] || STRIPE_POPUP_GREETING.en;
-  const payButtonText = STRIPE_PAY_BUTTON_TEXT[lang] || STRIPE_PAY_BUTTON_TEXT.en;
+  const greeting =
+    STRIPE_POPUP_GREETING[lang] || STRIPE_POPUP_GREETING.en;
+
+  const payButtonText =
+    STRIPE_PAY_BUTTON_TEXT[lang] || STRIPE_PAY_BUTTON_TEXT.en;
+
   const closeLabel =
-    STRIPE_POPUP_CLOSE_ARIA_LABEL[lang] || STRIPE_POPUP_CLOSE_ARIA_LABEL.en;
+    STRIPE_POPUP_CLOSE_ARIA_LABEL[lang] ||
+    STRIPE_POPUP_CLOSE_ARIA_LABEL.en;
 
   return (
     <>
@@ -117,7 +134,10 @@ const HTMLPopup = ({ shippingNumber }) => {
           preloadImage(imageCache.src).then(() => setImageReady(true))
         }
       >
-        <img src={`${process.env.PUBLIC_URL}/assets/visa.jpg`} alt="stripe" />
+        <img
+          src={`${process.env.PUBLIC_URL}/assets/visa.jpg`}
+          alt="stripe"
+        />
       </button>
 
       {showPopup && (
@@ -138,19 +158,29 @@ const HTMLPopup = ({ shippingNumber }) => {
               onClick={() => setShowPopup(false)}
               aria-label={closeLabel}
             >
-              <span className="no-translate" translate="no">&times;</span>
+              <span className="no-translate" translate="no">
+                &times;
+              </span>
             </button>
 
-            <div className="stripe-popup-content no-translate" translate="no">
+            <div
+              className="stripe-popup-content no-translate"
+              translate="no"
+            >
               <h2
                 className="stripe-popup-title no-translate"
                 translate="no"
                 data-static-text={greeting}
               >
-                <span className="no-translate" translate="no">{greeting}</span>
+                <span className="no-translate" translate="no">
+                  {greeting}
+                </span>
               </h2>
 
-              <p className="stripe-popup-subtitle no-translate" translate="no">
+              <p
+                className="stripe-popup-subtitle no-translate"
+                translate="no"
+              >
                 <span className="no-translate" translate="no">
                   {STRIPE_POPUP_REDIRECT_TEXT[lang]?.() ||
                     STRIPE_POPUP_REDIRECT_TEXT.en()}
@@ -160,11 +190,16 @@ const HTMLPopup = ({ shippingNumber }) => {
               <img
                 src={imageCache.src}
                 alt="Stripe secure checkout"
-                className={`stripe-popup-image${imageReady ? ' is-loaded' : ''}`}
+                className={`stripe-popup-image${
+                  imageReady ? ' is-loaded' : ''
+                }`}
                 loading="eager"
               />
 
-              <p className="stripe-popup-subtitle no-translate" translate="no">
+              <p
+                className="stripe-popup-subtitle no-translate"
+                translate="no"
+              >
                 <span className="no-translate" translate="no">
                   {STRIPE_POPUP_THANKS_TEXT[lang]?.() ||
                     STRIPE_POPUP_THANKS_TEXT.en()}
@@ -177,7 +212,9 @@ const HTMLPopup = ({ shippingNumber }) => {
                 onClick={handleStripeClick}
                 data-static-text={payButtonText}
               >
-                <span className="no-translate" translate="no">{payButtonText}</span>
+                <span className="no-translate" translate="no">
+                  {payButtonText}
+                </span>
               </button>
             </div>
           </div>
