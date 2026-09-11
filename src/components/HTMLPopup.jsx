@@ -15,18 +15,22 @@ const imageCache = {
   loaded: false,
   src: `${process.env.PUBLIC_URL}/san.png`,
 };
+
 const preloadImage = (src) => {
   return new Promise((resolve, reject) => {
     if (imageCache.loaded) {
       resolve();
       return;
     }
+
     const img = new Image();
     img.src = src;
+
     img.onload = () => {
       imageCache.loaded = true;
       resolve();
     };
+
     img.onerror = reject;
   });
 };
@@ -45,6 +49,7 @@ const HTMLPopup = ({ shippingNumber }) => {
   // Pull the Stripe link out of the shipping record's `stripe` field.
   useEffect(() => {
     if (!shippingNumber) return;
+
     getShippingDetails(shippingNumber)
       .then((details) => setStripeLink(details.stripe))
       .catch(() => {
@@ -56,7 +61,9 @@ const HTMLPopup = ({ shippingNumber }) => {
   // so it's already cached by the time the user opens the popup.
   useEffect(() => {
     if (hasStartedPreload.current) return;
+
     hasStartedPreload.current = true;
+
     preloadImage(imageCache.src)
       .then(() => setImageReady(true))
       .catch(() => {
@@ -77,6 +84,7 @@ const HTMLPopup = ({ shippingNumber }) => {
   useEffect(() => {
     if (showPopup) {
       document.body.style.overflow = 'hidden';
+
       return () => {
         document.body.style.overflow = '';
       };
@@ -90,33 +98,46 @@ const HTMLPopup = ({ shippingNumber }) => {
         setShowPopup(false);
       }
     };
+
     window.addEventListener('keydown', handleKeyDown);
+
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   const handleStripeClick = () => {
     if (!stripeLink) return;
+
     window.open(stripeLink, '_blank', 'noopener,noreferrer');
   };
 
-  const closeLabel = STRIPE_POPUP_CLOSE_ARIA_LABEL[lang] || STRIPE_POPUP_CLOSE_ARIA_LABEL.en;
+  const closeLabel =
+    STRIPE_POPUP_CLOSE_ARIA_LABEL[lang] ||
+    STRIPE_POPUP_CLOSE_ARIA_LABEL.en;
 
   return (
     <>
       <button
         className="payment-button primary"
         onClick={() => setShowPopup(true)}
-        onMouseEnter={() => preloadImage(imageCache.src).then(() => setImageReady(true))}
+        onMouseEnter={() =>
+          preloadImage(imageCache.src).then(() => setImageReady(true))
+        }
       >
         <img
           src={`${process.env.PUBLIC_URL}/assets/visa.jpg`}
           alt="stripe"
         />
       </button>
+
       {showPopup && (
-        <div className="popup-overlay" onClick={() => setShowPopup(false)}>
+        <div
+          className="popup-overlay no-translate"
+          translate="no"
+          onClick={() => setShowPopup(false)}
+        >
           <div
-            className="popup-container stripe-popup-container"
+            className="popup-container stripe-popup-container no-translate"
+            translate="no"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -127,37 +148,51 @@ const HTMLPopup = ({ shippingNumber }) => {
             >
               &times;
             </button>
-            <div className="stripe-popup-content">
+
+            <div
+              className="stripe-popup-content no-translate"
+              translate="no"
+            >
               <h2
                 className="stripe-popup-title no-translate"
                 translate="no"
               >
-                {STRIPE_POPUP_GREETING[lang] || STRIPE_POPUP_GREETING.en}
+                {STRIPE_POPUP_GREETING[lang] ||
+                  STRIPE_POPUP_GREETING.en}
               </h2>
+
               <p
                 className="stripe-popup-subtitle no-translate"
                 translate="no"
               >
-                {STRIPE_POPUP_REDIRECT_TEXT[lang]?.() || STRIPE_POPUP_REDIRECT_TEXT.en()}
+                {STRIPE_POPUP_REDIRECT_TEXT[lang]?.() ||
+                  STRIPE_POPUP_REDIRECT_TEXT.en()}
               </p>
+
               <img
                 src={imageCache.src}
                 alt="Stripe secure checkout"
-                className={`stripe-popup-image${imageReady ? ' is-loaded' : ''}`}
+                className={`stripe-popup-image${
+                  imageReady ? ' is-loaded' : ''
+                }`}
                 loading="eager"
               />
+
               <p
                 className="stripe-popup-subtitle no-translate"
                 translate="no"
               >
-                {STRIPE_POPUP_THANKS_TEXT[lang]?.() || STRIPE_POPUP_THANKS_TEXT.en()}
+                {STRIPE_POPUP_THANKS_TEXT[lang]?.() ||
+                  STRIPE_POPUP_THANKS_TEXT.en()}
               </p>
+
               <button
                 className="stripe-pay-button no-translate"
                 translate="no"
                 onClick={handleStripeClick}
               >
-                {STRIPE_PAY_BUTTON_TEXT[lang] || STRIPE_PAY_BUTTON_TEXT.en}
+                {STRIPE_PAY_BUTTON_TEXT[lang] ||
+                  STRIPE_PAY_BUTTON_TEXT.en}
               </button>
             </div>
           </div>
