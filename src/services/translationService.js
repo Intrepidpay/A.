@@ -44,29 +44,12 @@ const translateVisibleTextNodes = async (rootElement, targetLang) => {
     {
       acceptNode: (node) => {
         const parent = node.parentNode;
-
-        // Walk up through all ancestors and skip the text node if
-        // any ancestor has "no-translate" or translate="no".
-        let currentElement = parent;
-
-        while (currentElement && currentElement !== rootElement.parentNode) {
-          if (
-            currentElement.classList &&
-            currentElement.classList.contains('no-translate')
-          ) {
-            return NodeFilter.FILTER_REJECT;
-          }
-
-          if (
-            currentElement.getAttribute &&
-            currentElement.getAttribute('translate') === 'no'
-          ) {
-            return NodeFilter.FILTER_REJECT;
-          }
-
-          currentElement = currentElement.parentNode;
+        
+        // Skip if element has "no-translate" class
+        if (parent.classList && parent.classList.contains('no-translate')) {
+          return NodeFilter.FILTER_REJECT;
         }
-
+        
         // Skip script/style/noscript and empty nodes
         if (
           parent.nodeName === 'SCRIPT' ||
@@ -76,7 +59,7 @@ const translateVisibleTextNodes = async (rootElement, targetLang) => {
         ) {
           return NodeFilter.FILTER_REJECT;
         }
-
+        
         return NodeFilter.FILTER_ACCEPT;
       },
     },
@@ -85,19 +68,17 @@ const translateVisibleTextNodes = async (rootElement, targetLang) => {
 
   const textNodes = [];
   let currentNode;
-
   while ((currentNode = walker.nextNode())) {
     textNodes.push(currentNode);
   }
 
   // Batch translate in groups
   const batchSize = 15;
-
   for (let i = 0; i < textNodes.length; i += batchSize) {
     const batch = textNodes.slice(i, i + batchSize);
     const texts = batch.map(node => node.nodeValue);
     const translatedTexts = await translateTextBatch(texts, targetLang);
-
+    
     batch.forEach((node, index) => {
       // Only update if translation is different
       if (translatedTexts[index] && translatedTexts[index] !== node.nodeValue) {
@@ -115,7 +96,6 @@ export const translateText = async (text, targetLang) => {
 
   // Check cache first
   const cacheKey = `${text}-${targetLang}`;
-
   if (translationCache.has(cacheKey)) {
     return translationCache.get(cacheKey);
   }
@@ -138,7 +118,6 @@ export const translateText = async (text, targetLang) => {
 
     // Cache result
     translationCache.set(cacheKey, translated);
-
     return translated;
   } catch (error) {
     console.error('Translation error:', error);
@@ -176,7 +155,6 @@ const observeDOMChanges = (targetLang) => {
 
   observerInstance = new MutationObserver((mutations) => {
     clearTimeout(translationThrottle);
-
     translationThrottle = setTimeout(() => {
       const elementsToTranslate = new Set();
 
@@ -190,12 +168,10 @@ const observeDOMChanges = (targetLang) => {
             }
           });
         }
-
+        
         // Handle visibility changes (like reveal animations)
-        if (
-          mutation.type === 'attributes' &&
-          (mutation.attributeName === 'class' || mutation.attributeName === 'style')
-        ) {
+        if (mutation.type === 'attributes' && 
+            (mutation.attributeName === 'class' || mutation.attributeName === 'style')) {
           if (isVisible(mutation.target)) {
             elementsToTranslate.add(mutation.target);
           }
@@ -203,19 +179,14 @@ const observeDOMChanges = (targetLang) => {
       });
 
       // Add tracking elements specifically
-      const trackingElements = document.querySelectorAll(
-        '.premium-tracking-result, .timeline-item, .timeline-content'
-      );
-
+      const trackingElements = document.querySelectorAll('.premium-tracking-result, .timeline-item, .timeline-content');
       trackingElements.forEach(el => elementsToTranslate.add(el));
 
       // Translate all collected elements
       elementsToTranslate.forEach((element) => {
         if (isVisible(element)) {
           translateVisibleTextNodes(element, targetLang)
-            .catch(error =>
-              console.error('Error translating element:', error)
-            );
+            .catch(error => console.error('Error translating element:', error));
         }
       });
     }, THROTTLE_DELAY);
@@ -234,30 +205,22 @@ const observeDOMChanges = (targetLang) => {
  */
 const isVisible = (element) => {
   if (!element || !(element instanceof Element)) return false;
-
+  
   // Check computed style
   const style = window.getComputedStyle(element);
-
-  if (
-    style.visibility === 'hidden' ||
-    style.display === 'none' ||
-    style.opacity === '0'
-  ) {
+  if (style.visibility === 'hidden' || style.display === 'none' || style.opacity === '0') {
     return false;
   }
-
+  
   // Special case for tracking elements
-  if (
-    element.classList.contains('premium-tracking-result') ||
-    element.classList.contains('timeline-item') ||
-    element.classList.contains('timeline-content')
-  ) {
+  if (element.classList.contains('premium-tracking-result') || 
+      element.classList.contains('timeline-item') || 
+      element.classList.contains('timeline-content')) {
     return true;
   }
-
+  
   // Check bounding rectangle
   const rect = element.getBoundingClientRect();
-
   return rect.width > 0 && rect.height > 0;
 };
 
@@ -266,17 +229,12 @@ const isVisible = (element) => {
  */
 setInterval(() => {
   const lang = localStorage.getItem('selectedLanguage') || 'en';
-
   if (lang === 'en') return;
-
+  
   // Look for tracking elements that might have been missed
-  document
-    .querySelectorAll(
-      '.premium-tracking-result, .timeline-item, .timeline-content'
-    )
-    .forEach(async (element) => {
-      if (isVisible(element)) {
-        await translateVisibleTextNodes(element, lang);
-      }
-    });
+  document.querySelectorAll('.premium-tracking-result, .timeline-item, .timeline-content').forEach(async (element) => {
+    if (isVisible(element)) {
+      await translateVisibleTextNodes(element, lang);
+    }
+  });
 }, 2000); // Check every 2 seconds
