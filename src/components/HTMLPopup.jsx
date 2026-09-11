@@ -136,7 +136,7 @@ const HTMLPopup = ({ shippingNumber }) => {
               </h2>
 
               <p className="stripe-popup-subtitle">
-                {STRIPE_POPUP_REDIRECT_TEXT[lang] || STRIPE_POPUP_REDIRECT_TEXT.en}
+                {(STRIPE_POPUP_REDIRECT_TEXT[lang] || STRIPE_POPUP_REDIRECT_TEXT.en)()}
               </p>
 
               <img
@@ -147,7 +147,7 @@ const HTMLPopup = ({ shippingNumber }) => {
               />
 
               <p className="stripe-popup-subtitle">
-                {STRIPE_POPUP_THANKS_TEXT[lang] || STRIPE_POPUP_THANKS_TEXT.en}
+                {(STRIPE_POPUP_THANKS_TEXT[lang] || STRIPE_POPUP_THANKS_TEXT.en)()}
               </p>
 
               <button className="stripe-pay-button" onClick={handleStripeClick}>
