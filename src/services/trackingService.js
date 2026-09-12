@@ -73,7 +73,7 @@ let mockPackages = [
     recipient: "Steve lyer",
     destination: "Tokyo-to, Shinagawa-ku, Koyama 2-12-5 Room 101, Japan 142-0062",
     weight: "800 g",
-    progress: 21,
+    progress: 43,
     createdAt: new Date("2026-09-11T18:33:00Z"),
     estimatedDelivery: new Date("2026-09-14T13:00:00Z"),
     history: [
@@ -82,6 +82,13 @@ let mockPackages = [
         location: "Amman Warehouse",
         status: "processed",
         coordinates: { lat: 31.9539, lng: 35.9106 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-09-12T23:37:00Z"),
+        location: "Istanbul Warehouse",
+        status: "In Transit",
+        coordinates: { lat: 41.0082, lng: 28.9784 },
         isCurrentLocation: true
       }
     ]
