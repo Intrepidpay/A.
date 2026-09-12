@@ -75,7 +75,7 @@ let mockPackages = [
     weight: "800 g",
     progress: 21,
     createdAt: new Date("2026-09-11T18:33:00Z"),
-    estimatedDelivery: new Date("2026-09-13T13:00:00Z"),
+    estimatedDelivery: new Date("2026-09-14T13:00:00Z"),
     history: [
       {
         timestamp: new Date("2026-09-11T20:17:00Z"),
