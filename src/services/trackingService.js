@@ -73,7 +73,7 @@ let mockPackages = [
     recipient: "Steve lyer",
     destination: "Tokyo-to, Shinagawa-ku, Koyama 2-12-5 Room 101, Japan 142-0062",
     weight: "800 g",
-    progress: 17,
+    progress: 21,
     createdAt: new Date("2026-09-11T18:33:00Z"),
     estimatedDelivery: new Date("2026-09-13T13:00:00Z"),
     history: [
