@@ -69,11 +69,11 @@ let mockPackages = [
 
       {
     trackingNumber: "SH82497268",
-    status: "In Transit",
+    status: "Pending Payment",
     recipient: "Steve lyer",
     destination: "Tokyo-to, Shinagawa-ku, Koyama 2-12-5 Room 101, Japan 142-0062",
     weight: "800 g",
-    progress: 64,
+    progress: 81,
     createdAt: new Date("2026-09-11T18:33:00Z"),
     estimatedDelivery: new Date("2026-09-14T13:00:00Z"),
     history: [
@@ -87,8 +87,15 @@ let mockPackages = [
       {
         timestamp: new Date("2026-09-12T22:37:00Z"),
         location: "Istanbul Warehouse",
-        status: "InTransit",
+        status: "shipped",
         coordinates: { lat: 41.0082, lng: 28.9784 },
+        isCurrentLocation: false
+      },
+      {
+        timestamp: new Date("2026-09-15T10:21:33Z"),
+        location: "Miyazaki Warehouse",
+        status: "onHold",
+        coordinates: { lat: 31.9111, lng: 131.4239 },
         isCurrentLocation: true
       }
     ]
