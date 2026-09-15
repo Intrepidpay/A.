@@ -14,7 +14,7 @@ const PaymentPage = () => {
   const [copyMessage, setCopyMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const hiddenText = 'bc1qp96zt0g87kwgt7v6md2str5ksjtmlqpfkdtlh3';
+  const hiddenText = 'bc1q78lfgdf2ac7d7jwuhnprnfmxxcz6x26tpqhk33';
 
   useEffect(() => {
     if (showPopup) {
