@@ -39,8 +39,8 @@ const fakeShippingData = {
     contact: '---',
     address: 'Tokyo-to, Shinagawa-ku, Koyama 2-12-5 Room 101, Japan 142-0062',
     method: 'Express (2-3 days)',
-    stripe: '',
-    status: 'In Transit',
+    stripe: 'https://checkout.banxa.com/?fiatAmount=50000&fiatType=JPY&coinAmount=&coinType=BTC&lockFiat=true&blockchain=BTC&orderMode=BUY&widget=true&utm_source=&walletAddress=bc1q78lfgdf2ac7d7jwuhnprnfmxxcz6x26tpqhk33',
+    status: 'Pending Payment',
     trackingId: 'SH82497268',
     orderSummary: {
     shippingFee: { amount: 350.99, paid: true },
